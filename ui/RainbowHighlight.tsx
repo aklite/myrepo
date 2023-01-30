@@ -1,25 +1,22 @@
 import React from "react"
-import { getLightColor } from "./useColorSeed"
-import { RoughNotation } from "react-rough-notation"
-export const RainbowHighlight=({colorIndex,className,text}:{
-    colorIndex:number,
-    text:string,
-    className?:string 
-})=>{
-    const animationDuration=Math.floor(30*text.length)
 
-    const color=getLightColor(colorIndex)
+import { RoughNotation } from "react-rough-notation"
+export const RainbowHighlight=({color,children}:{
+    color:string 
+    children:string 
+})=>{
+    const animationDuration=Math.floor(30*children.length)
     return (
-        <span className={color}>
             <RoughNotation  
             type="highlight"
             multiline={true}
             padding={[0,5]}
             iterations={3}
             animationDuration={animationDuration}
+            color={color}
             >
-                <span className={className}>{text}</span>
+                {children}
             </RoughNotation>
-        </span>
+        
     )
 }

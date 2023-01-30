@@ -5,8 +5,8 @@ import Link from "next/link"
 import React from "react"
 import Tilt from "react-parallax-tilt"
 import { RoughNotation } from "react-rough-notation"
+import {darkColors} from "@/ui/brandColors"
 import { FOCUS_VISIBLE_OUTLINE } from "@/ui/constants"
-import { getDarkColor } from "@/ui/useColorSeed"
 const data = [
     {
         name: "Dough",
@@ -48,18 +48,18 @@ type Project = {
 }
 const Project = ({ 
     project, 
-    seed, 
+    color,
     index 
    }:
     {
         project: Project,
-        seed: number[],
+        color: string,
         index: number
     }) => {
     let { hoverProps, isHovered } = useHover({})
     return (
         <Link href="/oops" legacyBehavior>
-            <a className={clsx("block rounded-xl", FOCUS_VISIBLE_OUTLINE)}>
+            <a className={clsx("block rounded-xl",FOCUS_VISIBLE_OUTLINE)}>
                 <div {...hoverProps}>
                     <Tilt
                         transitionSpeed={10000}
@@ -91,7 +91,7 @@ const Project = ({
     )
 }
 
-const Projects = ({ seed }: { seed: number[] }) => {
+const Projects = () => {
     return (
         <div className="container px-4 mx-auto">
             <h2 className="text-3xl font-bold text-gray-800">Projects</h2>
@@ -99,10 +99,10 @@ const Projects = ({ seed }: { seed: number[] }) => {
                 Some of the side projects I have been working on in the last few months.
             </h4>
             <div className="-mt-2 lg:flex lg:flex-wrap lg:-mx-6">
-                {data.map((project, i) => {
+                {data.map((project, index) => {
                     return (
-                        <div key={i} className="mt-12 lg:w-1/2 lg:px-6">
-                            <Project project={project} seed={seed} index={i} />
+                        <div key={index} className="mt-12 lg:w-1/2 lg:px-6">
+                            <Project project={project} color={darkColors[index]} index={index} />
                         </div>
                     )
                 })}

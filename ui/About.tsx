@@ -8,9 +8,14 @@ import { useTimeout } from "react-use"
 import { RainbowHighlight } from "@/ui/RainbowHighlight"
 import { useIsFontReady } from "@/ui/useIsFontReady"
 import { getDarkColor } from "@/ui/useColorSeed"
-
-const About = ({ seed }:{seed:number[]}) => {
+import {lightColors} from "@/ui/brandColors"
+import { shuffleArray } from "./shuffleArray"
+const About = () => {
+  const [colors,setColors]=React.useState<string[]>([])
   const isFontReady = useIsFontReady()
+  React.useEffect(()=>{
+    setColors(shuffleArray(lightColors))
+  },[])
 
   const [fn, , reset] = useTimeout(
     // 🤮 magic number: roughly how long it takes for RoughNotationGroup to
@@ -26,113 +31,99 @@ const About = ({ seed }:{seed:number[]}) => {
 
   const isNotationDone = Boolean(fn())
 
-  const notationSettings : {
-    type: string
-    padding: [number,number]
-    multiline: boolean,
-    iterations: number,
-  }={
-    type:"highlight",
-    multiline:true,
-    padding:[0,2],
-    iterations:1,
-  }
-
+  
   return (
     <div className="container px-4 mx-auto text-amber-200">
       <div className="lg:flex lg:flex-wrap lg:-mx-4">
         <div className="lg:w-2/3 lg:px-4">
-          <RoughNotationGroup show={isFontReady}>
+          
+          
+        <RoughNotationGroup show={isFontReady}>
             <h1 className="text-2xl font-bold text-gray-900 lg:text-4xl">
-              Hello! I&apos;m Ayush, a{" "}
-              <RainbowHighlight 
-              className="text-red-900" 
-              colorIndex={seed[0]}
-              text="developer"
-             />
-            
-             {" "}
-              based in India.
-              
+              Hello! I&apos;m Delba, a{" "}
+              <RainbowHighlight color={colors[0]}>developer</RainbowHighlight>{" "}
+              based in England.
             </h1>
 
-            <div className="mt-4 text-gray-800">
+            <div className="mt-4 text-gray-700">
               <p>
                 I love building tools that are{" "}
-                <RainbowHighlight
-                  className="text-blue-900"
-                  colorIndex={seed[1]}
-                  text="user-friendly, simple"
-                />{" "}
+                <RainbowHighlight color={colors[1]}>
+                  user-friendly, simple
+                </RainbowHighlight>{" "}
                 and{" "}
-                <RainbowHighlight
-                  className="text-slate-800"
-                  colorIndex={seed[2]}
-                  text="delightful"
-                />
-                 
+                <RainbowHighlight color={colors[2]}>
+                  delightful
+                </RainbowHighlight>
                 .
               </p>
 
               <p>
                 I was a student at Lambda School where I spent 8 months learning
                 the fundamentals of{" "}
-                <RainbowHighlight
-                  className="text-gray-700"
-                  colorIndex={seed[3]}
-                  text="front-end"
-                />{" "}
+                <RainbowHighlight color={colors[3]}>front-end</RainbowHighlight>{" "}
                 and{" "}
-                <RainbowHighlight
-                  className="text-gray-700"
-                  colorIndex={seed[4]}
-                  text="back-end web development"
-                />
+                <RainbowHighlight color={colors[4]}>
+                  back-end web development
+                </RainbowHighlight>
                 .
               </p>
 
               <p>
                 <RoughNotation
-                  {...notationSettings}
                   type="strike-through"
+                  multiline={true}
+                  padding={[0, 2]}
+                  iterations={3}
                   color="#374151"
                   animationDuration={1200}
-                  strokeWidth={1.2}
+                  strokeWidth={2}
                 >
                   I currently work at Lambda where my role is split between
                   helping scale processes through automations and overseeing
                   student teams.
                 </RoughNotation>
               </p>
-
               <p>
                 Through these experiences, I had the opportunity to work with
                 both small and large, specialised and cross-functional teams
                 across different time zones and developed a working style that
                 leans towards{" "}
-                <RainbowHighlight
-                  className="text-gray-700"
-                  colorIndex={seed[5]}
-                  text="flexibility,"
-                />
-                  {" "}
-               {" "}
-                <RainbowHighlight
-                  className="text-gray-700"
-                  colorIndex={seed[6]}
-                  text="clarity"
-                />
+                <RainbowHighlight color={colors[5]}>
+                  flexibility,
+                </RainbowHighlight>
+                <RainbowHighlight color={colors[6]}>clarity,</RainbowHighlight>{" "}
                 and{" "}
-                <RainbowHighlight
-                  className="text-gray-700"
-                  colorIndex={seed[0]}
-                  text="collaboration"
-                />
+                <RainbowHighlight color={colors[0]}>
+                  collaboration
+                </RainbowHighlight>
                 .
+              </p>
+
+              <p>
+                I&apos;m currently looking for a new role as a developer.{" "}
+                <RoughNotation
+                  type="circle"
+                  multiline={true}
+                  animationDuration={1500}
+                  animationDelay={1700}
+                  strokeWidth={2}
+                  iterations={3}
+                  padding={5}
+                  color={colors[1]}
+                >
+                  <a
+                    href="#contact"
+                    className="font-medium text-gray-700 transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none"
+                  >
+                    Hire me?
+                  </a>
+                </RoughNotation>
               </p>
             </div>
           </RoughNotationGroup>
-
+             
+           
           <div>
             <div className="text-gray-700">
               <span
@@ -164,23 +155,7 @@ const About = ({ seed }:{seed:number[]}) => {
                   getDarkColor(seed[1]),
                 )}
               >
-                <RoughNotation
-                  {...notationSettings}
-                  show={isNotationDone}
-                  type="circle"
-                  animationDuration={1500}
-                  animationDelay={1700}
-                  strokeWidth={1.5}
-                  iterations={3}
-                  padding={5}
-                >
-                  <a
-                    href="#contact"
-                    className="font-medium text-gray-700 transition-colors hover:text-gray-900 focus:text-gray-900 focus:outline-none"
-                  >
-                    Hire me?
-                  </a>
-                </RoughNotation>
+                
               </span>
             </div>
 
