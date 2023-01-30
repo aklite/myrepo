@@ -47,7 +47,7 @@ const About = () => {
               </p>
 
               <p>
-                I was a student at Lambda School where I spent 8 months learning
+                I am a student at LPU where I spent 4 years learning
                 the fundamentals of{" "}
                 <RainbowHighlight color={colors[3]}>front-end</RainbowHighlight>{" "}
                 and{" "}
@@ -67,7 +67,7 @@ const About = () => {
                   animationDuration={1200}
                   strokeWidth={1.2}
                 >
-                  I currently work at Lambda where my role is split between
+                  I currently work at Amazon where my role is split between
                   helping scale processes through automations and overseeing
                   student teams.
                 </RoughNotation>
@@ -114,7 +114,7 @@ const About = () => {
           <div>
             <div className="flex flex-wrap mt-6 space-x-4">
               <a
-                href="/delba-resume.pdf"
+                href="/ayush-resume.pdf"
                 target="_blank"
                 className={clsx(
                   "inline-flex items-center lg:px-8 px-4 py-2 font-medium text-white bg-gray-700 border border-transparent rounded-full shadow-sm hover:bg-gray-800",
@@ -123,8 +123,8 @@ const About = () => {
               >
                 View Resume
               </a>
-              <a
-                href="https://www.linkedin.com/in/delbaoliveira/"
+              <a 
+                href="https://www.linkedin.com/in/aklite/"
                 target="_blank"
                 rel="noreferrer"
                 className={clsx(
@@ -156,7 +156,7 @@ const About = () => {
                 style={{ fontSize: "0" }}
               >
                 <Image
-                  src="/delba.jpg"
+                  src="/ayush.jpg"
                   alt="Profile"
                   width={752}
                   height={1001}
