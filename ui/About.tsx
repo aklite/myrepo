@@ -1,44 +1,32 @@
-import clsx from "clsx"
+import { lightColors } from "@/ui/brandColors"
 import { FOCUS_VISIBLE_OUTLINE } from "@/ui/constants"
+import { RainbowHighlight } from "@/ui/RainbowHighlight"
+import { shuffleArray } from "@/ui/shuffleArray"
+import { useIsFontReady } from "@/ui/useIsFontReady"
+import clsx from "clsx"
 import Image from "next/image"
 import React from "react"
 import Tilt from "react-parallax-tilt"
 import { RoughNotation, RoughNotationGroup } from "react-rough-notation"
-import { useTimeout } from "react-use"
-import { RainbowHighlight } from "@/ui/RainbowHighlight"
-import { useIsFontReady } from "@/ui/useIsFontReady"
-import { getDarkColor } from "@/ui/useColorSeed"
-import {lightColors} from "@/ui/brandColors"
-import { shuffleArray } from "./shuffleArray"
+
 const About = () => {
-  const [colors,setColors]=React.useState<string[]>([])
+  // before animation, detect if custom fonts are loaded, so <RoughNotation />
+  // SVG's are correctly positioned over the elements
   const isFontReady = useIsFontReady()
-  React.useEffect(()=>{
-    setColors(shuffleArray(lightColors))
-  },[])
 
-  const [fn, , reset] = useTimeout(
-    // 🤮 magic number: roughly how long it takes for RoughNotationGroup to
-    // finish animating
-    4500,
-  )
+  const [colors, setColors] = React.useState<string[]>([])
 
+  // shuffle our colors and store them in state so the order is persisted during
+  // React re-renders
   React.useEffect(() => {
-    // RoughNotationGroup starts animating *after* fonts are loaded, so reset
-    // the timer to ensure we're starting from the same point
-    reset()
-  }, [isFontReady,reset])
+    setColors(shuffleArray(lightColors))
+  }, [])
 
-  const isNotationDone = Boolean(fn())
-
-  
   return (
     <div className="container px-4 mx-auto text-amber-200">
       <div className="lg:flex lg:flex-wrap lg:-mx-4">
         <div className="lg:w-2/3 lg:px-4">
-          
-          
-        <RoughNotationGroup show={isFontReady}>
+          <RoughNotationGroup show={isFontReady}>
             <h1 className="text-2xl font-bold text-gray-900 lg:text-4xl">
               Hello! I&apos;m Delba, a{" "}
               <RainbowHighlight color={colors[0]}>developer</RainbowHighlight>{" "}
@@ -74,10 +62,10 @@ const About = () => {
                   type="strike-through"
                   multiline={true}
                   padding={[0, 2]}
-                  iterations={3}
+                  iterations={1}
                   color="#374151"
                   animationDuration={1200}
-                  strokeWidth={2}
+                  strokeWidth={1.2}
                 >
                   I currently work at Lambda where my role is split between
                   helping scale processes through automations and overseeing
@@ -122,46 +110,11 @@ const About = () => {
               </p>
             </div>
           </RoughNotationGroup>
-             
-           
-          <div>
-            <div className="text-gray-700">
-              <span
-                className={clsx("transition duration-1000 ease-in-out", {
-                  "opacity-0": !isNotationDone,
-                  "opacity-100": isNotationDone,
-                })}
-              >
-                I&apos;m currently looking for
-              </span>{" "}
-              <span
-                className={clsx(
-                  "transition duration-1000 ease-in-out delay-300",
-                  {
-                    "opacity-0": !isNotationDone,
-                    "opacity-100": isNotationDone,
-                  },
-                )}
-              >
-                a new role as a developer.{" "}
-              </span>
-              <span
-                className={clsx(
-                  "transition duration-1000 ease-in-out delay-500",
-                  {
-                    "opacity-0": !isNotationDone,
-                    "opacity-100": isNotationDone,
-                  },
-                  getDarkColor(seed[1]),
-                )}
-              >
-                
-              </span>
-            </div>
 
+          <div>
             <div className="flex flex-wrap mt-6 space-x-4">
               <a
-                href="/ayush-resume.pdf"
+                href="/delba-resume.pdf"
                 target="_blank"
                 className={clsx(
                   "inline-flex items-center lg:px-8 px-4 py-2 font-medium text-white bg-gray-700 border border-transparent rounded-full shadow-sm hover:bg-gray-800",
@@ -171,7 +124,7 @@ const About = () => {
                 View Resume
               </a>
               <a
-                href="https://www.linkedin.com/in/aklite/"
+                href="https://www.linkedin.com/in/delbaoliveira/"
                 target="_blank"
                 rel="noreferrer"
                 className={clsx(
@@ -203,7 +156,7 @@ const About = () => {
                 style={{ fontSize: "0" }}
               >
                 <Image
-                  src="/ayush.jpg"
+                  src="/delba.jpg"
                   alt="Profile"
                   width={752}
                   height={1001}
@@ -218,5 +171,4 @@ const About = () => {
     </div>
   )
 }
-
 export default About
