@@ -6,7 +6,7 @@ export const lightColors=[
   "#BAE6FD",
   "#E5E7EB",
   "#FED7AA",
-]
+] 
 export const darkColors=[
   "#FB7185",
   "#FBBF24",
