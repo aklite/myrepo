@@ -21,7 +21,8 @@
     "paths": {
       "@/ui/*": [
         "ui/*"
-      ]
+      ],
+      "@/lib/*":["lib/*"]
     },
     "incremental": true
   },

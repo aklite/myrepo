@@ -28,9 +28,9 @@ const About = () => {
         <div className="lg:w-2/3 lg:px-4">
           <RoughNotationGroup show={isFontReady}>
             <h1 className="text-2xl font-bold text-gray-900 lg:text-4xl">
-              Hello! I&apos;m Delba, a{" "}
+              Hello! I&apos;m Ayush, a{" "}
               <RainbowHighlight color={colors[0]}>developer</RainbowHighlight>{" "}
-              based in England.
+              based in India.
             </h1>
 
             <div className="mt-4 text-gray-700">
