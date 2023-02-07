@@ -34,5 +34,5 @@ export const createOgImage = ({
     `fl_layer_apply,w_140,g_north_west,x_100,y_100`,
 
     // BG
-    `grain-gradient.png`,
+    `j1_op064s.png`,
   ].join("/")
