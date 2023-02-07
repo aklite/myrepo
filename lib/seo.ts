@@ -1,7 +1,7 @@
 import { createOgImage } from "@/lib/createOgImage"
 import type { DefaultSeoProps } from "next-seo"
 
-const title = `Ayush`
+const title = `Ayush Kumar`
 const description = `Welcome to my website I write blogs about things I learn.`
 const domain = `aklite.netlify.app`
 const twitter = `@aklite9`
