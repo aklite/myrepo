@@ -5,6 +5,7 @@ import type { PostMeta } from "types/post"
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import Head from "next/dist/shared/lib/head"
 export function getStaticProps() {
   const files=fs.readdirSync(path.join('posts'))
   const posts=files.map((fileName)=>{
@@ -28,6 +29,13 @@ export function getStaticProps() {
 export default function BlogPage({ posts }: { posts: PostMeta[] }) {
   return (
     <Layout>
+      <Head>
+        <title>Blogs by Ayush</title>
+        <meta 
+        name="description"
+        content="educational blogs"
+        />
+      </Head>
       <div className="container max-w-3xl px-4 mx-auto mt-36">
         <h1 className="text-5xl font-extrabold text-gray-800">Blog</h1>
         <h4 className="mt-2 text-gray-700 lg:text-lg">

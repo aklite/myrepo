@@ -3,6 +3,8 @@ import Link from "next/link"
 import React from "react"
 import type { PostMeta } from "types/post"
 
+
+
 export const BlogPreview = ({ post }: { post: PostMeta }) => {
   return (
        <div key={post.slug}>
