@@ -157,7 +157,7 @@ const About = () => {
               >
                 <Image
                   src="/ayush.jpg"
-                  alt="Profile"
+                  alt="Ayush Kumar photo"
                   width={752}
                   height={1001}
                   priority={true}
