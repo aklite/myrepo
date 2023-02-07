@@ -11,6 +11,7 @@ import matter from 'gray-matter'
 import { GetStaticProps } from "next"
 import { PostMeta } from "types/post"
 import { sl } from "date-fns/locale"
+import Head from "next/dist/shared/lib/head"
 export const getStaticPaths = () => {
     const files = fs.readdirSync(path.join('posts'))
     const paths = files.map((fileName) => ({
@@ -41,8 +42,16 @@ export default function PostPage(props:{props: {
 }}) {
     return (
         <Layout>
+            <Head>
+                <title>Blog 1</title>
+                <meta 
+                name="description"
+                content="Blogs are written in English"
+                key="desc"
+                />
+            </Head>
             <div className="container max-w-3xl px-4 mx-auto mt-36">
-
+           
                 <div
                     className="flex items-center mt-4 space-x-2 text-gray-600"
                 >
