@@ -1,45 +1,59 @@
-import { components } from "@/ui/MdxComponents"
-import { getAllPostsMeta, getPostBySlug } from "@/ui/mdx"
-import { format, parseISO } from "date-fns"
-import { getMDXComponent } from "mdx-bundler/client"
+// import { components } from "@/ui/MdxComponents"
+// import { getAllPostsMeta, getPostBySlug } from "@/ui/mdx"
+// import { format, parseISO } from "date-fns"
+// import { getMDXComponent } from "mdx-bundler/client"
+import { GetStaticPaths, GetStaticProps } from 'next'
 import React from "react"
 import fs from 'fs'
 import Layout from "@/ui/Layout"
 import Image from "next/image"
 import path from 'path'
 import matter from 'gray-matter'
-import { GetStaticProps } from "next"
-import { PostMeta } from "types/post"
-import { sl } from "date-fns/locale"
+import { PostMeta  } from "types/post"
+import { getPostData,getAllPostIds } from '@/lib/posts';
+
+import { ParsedUrlQuery } from 'querystring'
 import Head from "next/dist/shared/lib/head"
-export const getStaticPaths = () => {
-    const files = fs.readdirSync(path.join('posts'))
-    const paths = files.map((fileName) => ({
-        params: {
-            slug: fileName.replace('.mdx', '')
-        }
-    }))
-
-    return {
-        paths,
-        fallback: false,
-    }
+import { LogoJsonLd } from 'next-seo'
+interface Data{
+    title:string
+    description:string
+    publishedAt:string
+    contentHtml:string;
 }
-export const getStaticProps = ({ params: slug }: { params: { slug: string } }) => {
+interface IParams extends ParsedUrlQuery {
+    slug: string;
+}
+
+export async function getStaticPaths() {
+    const paths = getAllPostIds();
+    return {
+      paths,
+      fallback: false,
+    };
+  }
   
-    
-    // const markdownWithMeta = fs.readFileSync(path.join('posts', slug + '.mdx'), 'utf-8')
-    // const post= matter(markdownWithMeta)
-    return {
-        props: { 
-           post :"dskkjds"  as string 
-        } 
-    }
+  
+
+  export const  getStaticProps:GetStaticProps=async({params})=> {
+    const {slug}=params as IParams 
+    const data=await getPostData(slug)
+    console.log("content is ",data)
+    return {  
+       props:{
+         data,
+          }
+        }
 }
 
-export default function PostPage(props:{props: {
-    post: string;
-}}) {
+export default function PostPage(
+{
+    data 
+}:
+{
+    data:Data
+}
+) {
     return (
         <Layout>
             <Head>
@@ -60,11 +74,15 @@ export default function PostPage(props:{props: {
                         height={24}
                         width={24}
                         className="rounded-full"
-                        alt=""
+                        alt="Ayush Kumar Icon"
                     />
-                    <div>Ayush Kumar</div>
-                    <div></div>
-
+                    <div>
+                        <h1
+                        className='text-4xl font-bold'
+                        >{data.title}
+                        </h1>
+                        <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+                    </div>
                 </div>
             </div>
         </Layout>
