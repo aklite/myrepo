@@ -32,8 +32,6 @@ export function getStaticProps() {
 }
 
 export default function Home({ posts}:{posts:PostMeta[]}) {
-    
-  
   return (
     <Layout>
       <div className="space-y-14 lg:space-y-24">
