@@ -57,11 +57,17 @@ export default function PostPage(
     return (
         <Layout>
             <Head>
-                <title>Blog 1</title>
+                <title>{data.title}</title>
                 <meta 
                 name="description"
-                content="Blogs are written in English"
+                content={data.description}
                 key="desc"
+                />
+                <meta 
+                name="keywords"
+                content="Ayush Kumar Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
+                Tools I like to use NextJs Tailwind css ReactQuery 
+                "
                 />
             </Head>
             <div className="container max-w-3xl px-4 mx-auto mt-36">
