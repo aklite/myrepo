@@ -5,6 +5,7 @@ import Projects from "@/ui/Projects"
 import Skills from "@/ui/Skills"
 import Words from "@/ui/Words"
 import { BlogPreview } from "@/ui/BlogPreview"
+import Head from "next/head"
 // import { getAllPostsMeta } from "@/ui/mdx"
 import React from "react"
 import type { PostMeta } from "types/post"
@@ -34,6 +35,9 @@ export function getStaticProps() {
 export default function Home({ posts}:{posts:PostMeta[]}) {
   return (
     <Layout>
+      <Head>
+      <meta name="google-site-verification" content="NEMpabu1y5ceBmoMuGfgVTxyfYsT0myWYoVuCw2XpR0" />
+      </Head>
       <div className="space-y-14 lg:space-y-24">
         <div id="about">
           <About />

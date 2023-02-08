@@ -33,7 +33,12 @@ export default function BlogPage({ posts }: { posts: PostMeta[] }) {
         <title>Blogs by Ayush</title>
         <meta 
         name="description"
-        content="educational blogs"
+        content="Blogs on Web Development, latest trends, Learn about Nextjs,React"
+        />
+        <meta 
+        name="keywords"
+        content="Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
+        Tools I like to use NextJs Tailwind css ReactQuery"
         />
       </Head>
       <div className="container max-w-3xl px-4 mx-auto mt-36">
