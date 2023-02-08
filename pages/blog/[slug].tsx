@@ -14,7 +14,8 @@ import { getPostData,getAllPostIds } from '@/lib/posts';
 
 import { ParsedUrlQuery } from 'querystring'
 import Head from "next/dist/shared/lib/head"
-import { LogoJsonLd } from 'next-seo'
+import { LogoJsonLd, NextSeo } from 'next-seo'
+import { createOgImage } from '@/lib/createOgImage'
 interface Data{
     title:string
     description:string
@@ -42,36 +43,48 @@ export async function getStaticPaths() {
     return {  
        props:{
          data,
+         slug
           }
         }
 }
 
 export default function PostPage(
 {
-    data 
+    data,
+    slug
 }:
 {
-    data:Data
+    data:Data,
+    slug:string 
 }
 ) {
+    const url=`https://aklite4.netlify.app/blog/${slug}`
+    const title=`${data.title} | aklite.netlify.app`
+    const ogImage=createOgImage({
+        title:data.title, 
+        meta:"aklite.netlify.app . " + data.publishedAt
+    }) 
     return (
         <Layout>
-            <Head>
-                <title>{data.title}</title>
-                <meta 
-                name="description"
-                content={data.description}
-                key="desc"
-                />
-                <meta 
-                name="keywords"
-                content="Ayush Kumar Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
-                Tools I like to use NextJs Tailwind css ReactQuery 
-                "
-                />
-            </Head>
+            <NextSeo
+            title={data.title}
+            description={data.description}
+            canonical={url}
+            openGraph={{
+                url,
+                title,
+                description:data.description,
+                images:[
+                   {
+                     url:ogImage,
+                     width:1600,
+                     height:836,
+                     alt:data.title,
+                },
+                ],
+            }}
+            />
             <div className="container max-w-3xl px-4 mx-auto mt-36">
-           
                 <div
                     className="flex items-center mt-4 space-x-2 text-gray-600"
                 >
