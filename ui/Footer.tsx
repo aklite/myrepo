@@ -9,7 +9,7 @@ const Footer = () => {
               className="hover:text-blue-400"
               title="Much love <3"
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-            >
+            >   
               ♥
             </a>
           </p>
@@ -18,4 +18,4 @@ const Footer = () => {
     )
   }
   
-  export default Footer
+export default Footer
