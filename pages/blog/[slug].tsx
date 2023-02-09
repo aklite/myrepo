@@ -40,7 +40,6 @@ export async function getStaticPaths() {
   export const  getStaticProps:GetStaticProps=async({params})=> {
     const {slug}=params as IParams 
     const data=await getPostData(slug)
-    console.log("content is ",data)
     return {  
        props:{
          data,
