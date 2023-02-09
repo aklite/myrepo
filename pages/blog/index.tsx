@@ -30,7 +30,7 @@ export default function BlogPage({ posts }: { posts: PostMeta[] }) {
   return (
     <Layout>
       <Head>
-        <title>Blogs by Ayush</title>
+        <title>Blogs | Ayush Kumar</title>
         <meta 
         name="description"
         content="Blogs on Web Development, latest trends, Learn about Nextjs,React"
