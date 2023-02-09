@@ -58,7 +58,6 @@ export default function PostPage(
 
     const ogImage=createOgImage({
         title:data.title, 
-    
         meta:"aklite4.netlify.app . " + data.publishedAt
     }) 
     return (
