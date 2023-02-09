@@ -65,8 +65,8 @@ export default function PostPage(
         meta:"aklite.netlify.app . " + data.publishedAt
     }) 
     return (
-        <Layout>
-         <meta 
+        <>
+        <meta 
          name="author"
          content="Ayush Kumar"
          />
@@ -93,6 +93,8 @@ export default function PostPage(
                 ],
             }}
             />
+        <Layout>
+            
             <div className="container max-w-3xl px-4 mx-auto mt-36">
                 <div
                     className="flex items-center mt-4 space-x-2 text-gray-600"
@@ -114,5 +116,6 @@ export default function PostPage(
                 </div>
             </div>
         </Layout>
+        </>
     )
 }
