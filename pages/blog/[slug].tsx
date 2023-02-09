@@ -9,7 +9,7 @@ import Layout from "@/ui/Layout"
 import Image from "next/image"
 import path from 'path'
 import matter from 'gray-matter'
-import { PostMeta  } from "types/post"
+// import { PostMeta  } from "types/post"
 import { getPostData,getAllPostIds } from '@/lib/posts';
 
 import { ParsedUrlQuery } from 'querystring'
@@ -94,25 +94,34 @@ export default function PostPage(
             }}
             />
         <Layout>
-            <div className="container max-w-3xl px-4 mx-auto mt-36">
+            <div className="container max-w-3xl px-4 mx-auto mt-12 ">
                 <div
-                    className="flex items-center mt-4 space-x-2 text-gray-600"
+                    className="flex  mt-4 gap-12 space-x-2 text-gray-600 mb-4"
                 >
                     <Image
                         src="/ayush.jpg"
-                        height={24}
-                        width={24}
+                        height={80}
+                        width={80}
                         className="rounded-full"
                         alt="Ayush Kumar Icon"
-                    />
+                    /> 
                     <div>
-                        <h1
-                        className='text-4xl font-bold'
-                        >{data.title}
-                        </h1>
-                        <div dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+                        <p className='text-xl font-light'>Ayush Kumar</p>
+                        <p className='italic'>
+                        I am a frontend developer. I love working in React Projects.
+                        I keep on exploring frameworks,
+                        Intrested in Open Source Projects, 
+                        Hackathon enthusiast.
+                        </p>
                     </div>
-                </div>
+                    </div>
+                        <div>
+                            <h1
+                            className='text-4xl font-semibold mb-4'
+                            >{data.title}
+                            </h1>
+                            <div className='text-xl font-normal leading-8' dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+                        </div>
             </div>
         </Layout>
         </>

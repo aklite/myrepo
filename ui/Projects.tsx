@@ -93,7 +93,7 @@ const Project = ({
 
 const Projects = () => {
     return (
-        <div className="container px-4 mx-auto">
+        <div className="container px-6 py-4 mx-auto">
             <h2 className="text-3xl font-bold text-gray-800">Projects</h2>
             <h4 className="text-gray-700 lg:text-lg">
                 Some of the side projects I have been working on in the last few months.
