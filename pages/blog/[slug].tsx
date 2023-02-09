@@ -5,14 +5,9 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useReadingTime } from "react-reading-time-estimator";
 import React from "react"
-import fs from 'fs'
 import Layout from "@/ui/Layout"
 import Image from "next/image"
-import path from 'path'
-import matter from 'gray-matter'
-// import { PostMeta  } from "types/post"
 import { getPostData,getAllPostIds } from '@/lib/posts';
-
 import { ParsedUrlQuery } from 'querystring'
 import Head from "next/dist/shared/lib/head"
 import { LogoJsonLd, NextSeo } from 'next-seo'
