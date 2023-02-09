@@ -3,7 +3,7 @@ import type { DefaultSeoProps } from "next-seo"
 
 const title = `Ayush Kumar`
 const description = `Welcome to my website I write blogs about things I learn.`
-const domain = `aklite.netlify.app`
+const domain = `aklite4.netlify.app`
 const twitter = `@aklite9`
 const meta = `Frontend Developer`
 

@@ -29,7 +29,7 @@ export const createOgImage = ({
     // dynamically fetched from my twitter profile
     `l_twitter_name:aklite9`,
     // Transformations
-    `c_thumb,g_face,r_max,w_480,h_480,q_100`,
+    `c_thumb,g_face,r_max,w_480,h_480,q_400`,
     // Positioning
     `fl_layer_apply,w_140,g_north_west,x_100,y_100`,
 
