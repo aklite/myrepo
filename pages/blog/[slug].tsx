@@ -62,7 +62,7 @@ export default function PostPage(
     const title=`${data.title} | aklite.netlify.app`
     const ogImage=createOgImage({
         title:data.title, 
-        meta:"aklite.netlify.app . " + data.publishedAt
+        meta:"aklite4.netlify.app . " + data.publishedAt
     }) 
     return (
         <>
@@ -94,7 +94,6 @@ export default function PostPage(
             }}
             />
         <Layout>
-            
             <div className="container max-w-3xl px-4 mx-auto mt-36">
                 <div
                     className="flex items-center mt-4 space-x-2 text-gray-600"
