@@ -3,13 +3,12 @@
 // import { format, parseISO } from "date-fns"
 // import { getMDXComponent } from "mdx-bundler/client"
 import { GetStaticPaths, GetStaticProps } from 'next'
-import { useReadingTime } from "react-reading-time-estimator";
 import React from "react"
 import Layout from "@/ui/Layout"
 import Image from "next/image"
 import { getPostData,getAllPostIds } from '@/lib/posts';
 import { ParsedUrlQuery } from 'querystring'
-import Head from "next/dist/shared/lib/head"
+import {readingTime} from "@/lib/readingtime"
 import { LogoJsonLd, NextSeo } from 'next-seo'
 import { createOgImage } from '@/lib/createOgImage'
 interface Data{
@@ -55,13 +54,13 @@ export default function PostPage(
 ) {
     const url=`https://aklite4.netlify.app/blog/${slug}`
     const title=`${data.title} | aklite.netlify.app`
+    const minutesToRead= readingTime(data.contentHtml)
+
     const ogImage=createOgImage({
         title:data.title, 
+    
         meta:"aklite4.netlify.app . " + data.publishedAt
     }) 
-    const {
-        text
-      } = useReadingTime(data.contentHtml);
     return (
         <>
         <meta 
@@ -120,7 +119,7 @@ export default function PostPage(
                             className='text-4xl font-semibold mb-4'
                             >{data.title}
                             </h1>
-                            <p className='font-light my-3'>{data.publishedAt} . {text}</p>
+                            <p className='font-light my-3'>{data.publishedAt} . {minutesToRead} min Read</p>
                             <div className='text-xl font-normal leading-8' dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
                         </div>
             </div>
