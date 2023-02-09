@@ -66,6 +66,15 @@ export default function PostPage(
     }) 
     return (
         <Layout>
+         <meta 
+         name="author"
+         content="Ayush Kumar"
+         />
+             <meta 
+        name="keywords"
+        content="Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
+        Tools I like to use NextJs Tailwind css ReactQuery"
+        />
             <NextSeo
             title={data.title}
             description={data.description}
