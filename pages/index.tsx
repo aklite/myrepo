@@ -37,6 +37,15 @@ export default function Home({ posts}:{posts:PostMeta[]}) {
     <Layout>
       <Head>
       <meta name="google-site-verification" content="NEMpabu1y5ceBmoMuGfgVTxyfYsT0myWYoVuCw2XpR0" />
+      <meta 
+      name="author"
+      content="Ayush Kumar"
+      />
+       <meta 
+        name="keywords"
+        content="Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
+        Tools I like to use NextJs Tailwind css ReactQuery"
+        />
       </Head>
       <div className="space-y-14 lg:space-y-24">
         <div id="about">
