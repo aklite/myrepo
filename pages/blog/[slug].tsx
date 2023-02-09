@@ -3,6 +3,7 @@
 // import { format, parseISO } from "date-fns"
 // import { getMDXComponent } from "mdx-bundler/client"
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useReadingTime } from "react-reading-time-estimator";
 import React from "react"
 import fs from 'fs'
 import Layout from "@/ui/Layout"
@@ -64,6 +65,9 @@ export default function PostPage(
         title:data.title, 
         meta:"aklite4.netlify.app . " + data.publishedAt
     }) 
+    const {
+        text
+      } = useReadingTime(data.contentHtml);
     return (
         <>
         <meta 
@@ -96,7 +100,9 @@ export default function PostPage(
         <Layout>
             <div className="container max-w-3xl px-4 mx-auto mt-12 ">
                 <div
-                    className="flex  mt-4 gap-12 space-x-2 text-gray-600 mb-4"
+                    className="md:flex  md:mt-4 md:gap-12 md:space-x-2 md:text-gray-600 md:mb-4
+                    hidden
+                    "
                 >
                     <Image
                         src="/ayush.jpg"
@@ -120,6 +126,7 @@ export default function PostPage(
                             className='text-4xl font-semibold mb-4'
                             >{data.title}
                             </h1>
+                            <p className='font-light my-3'>{data.publishedAt} . {text}</p>
                             <div className='text-xl font-normal leading-8' dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
                         </div>
             </div>
