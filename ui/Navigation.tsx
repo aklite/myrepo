@@ -4,7 +4,7 @@ import React from "react"
 import { FOCUS_VISIBLE_OUTLINE } from "@/ui/constants"
 const Navigation = () => {
     return (
-        <div className="container px-4 mx-auto mt-4 mb-4 lg:mt-8 lg:mb-20">
+        <div className="container px-4 mx-auto  mb-4 py-6 lg:mb-20">
             <div className="lg:flex lg:items-center lg:justify-between">
                 <Link href="/" legacyBehavior>
                     <a

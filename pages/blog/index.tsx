@@ -46,7 +46,7 @@ export default function BlogPage({ posts }: { posts: PostMeta[] }) {
         />
       </Head>
       <div className="container max-w-3xl px-4 mx-auto mt-36">
-        <h1 className="text-5xl font-extrabold text-gray-800">Blog</h1>
+        <h1 className="text-5xl font-extrabold text-gray-800">Blogs</h1> 
         <h4 className="mt-2 text-gray-700 lg:text-lg">
           Thoughts on what I&apos;m learning and building in web development
         </h4>

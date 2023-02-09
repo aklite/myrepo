@@ -54,10 +54,9 @@ export default function Home({ posts}:{posts:PostMeta[]}) {
         <div id="skills">
           <Skills />
         </div>
-
         <div id="blog">
           <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800">Posts</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">Blogs</h2>
             <h4 className="text-gray-700 lg:text-lg">
               Thoughts on what I&apos;m learning and building in web development
             </h4>

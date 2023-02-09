@@ -7,7 +7,7 @@ import type { PostMeta } from "types/post"
 
 export const BlogPreview = ({ post }: { post: PostMeta }) => {
   return (
-       <div key={post.slug}>
+       <div key={post.slug} className="my-8">
         <h2 className="text-xl font-bold">
             <Link href={`blog/${post.slug}`} legacyBehavior>
             <a className="text-gray-800 transition-colors hover:text-gray-600">
