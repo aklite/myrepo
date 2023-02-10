@@ -6,8 +6,7 @@ const Footer = () => {
           <p>
             Built with TypeScript, Tailwind and Next.js{" "}
             <a
-              className="hover:text-blue-400"
-              title="Much love <3"
+              className="text-blue-400"
               href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
             >   
               ♥
