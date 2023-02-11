@@ -9,13 +9,18 @@ import Image from "next/image"
 import { getPostData,getAllPostIds } from '@/lib/posts';
 import { ParsedUrlQuery } from 'querystring'
 import {readingTime} from "@/lib/readingtime"
-import { LogoJsonLd, NextSeo } from 'next-seo'
+import { NextSeo } from 'next-seo'
+import {FiEdit}from "react-icons/fi"
 import { createOgImage } from '@/lib/createOgImage'
 interface Data{
     title:string
     description:string
     publishedAt:string
     contentHtml:string;
+}
+interface Props{
+    data:Data 
+    slug:string 
 }
 interface IParams extends ParsedUrlQuery {
     slug: string;
@@ -46,14 +51,10 @@ export default function PostPage(
 {
     data,
     slug
-}:
-{
-    data:Data,
-    slug:string 
-}
+}:Props
 ) {
     const url=`https://aklite4.netlify.app/blog/${slug}`
-    const title=`${data.title} | aklite.netlify.app`
+    const title=`${data.title} | aklite4.netlify.app`
     const minutesToRead= readingTime(data.contentHtml)
 
     const ogImage=createOgImage({
@@ -120,6 +121,11 @@ export default function PostPage(
                             </h1>
                             <p className='font-light my-3'>{data.publishedAt} . {minutesToRead} min Read</p>
                             <div className='text-xl font-normal leading-8' dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
+                        </div>
+                        <hr />
+                        <div className='flex gap-4 mt-5 items-center'>
+                        <FiEdit className=''/> 
+                        <p className=''>Edit on Github</p>
                         </div>
             </div>
         </Layout>
