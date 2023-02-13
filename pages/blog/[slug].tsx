@@ -1,22 +1,25 @@
-// import { components } from "@/ui/MdxComponents"
+import { components } from "@/ui/MdxComponents"
 // import { getAllPostsMeta, getPostBySlug } from "@/ui/mdx"
 // import { format, parseISO } from "date-fns"
 // import { getMDXComponent } from "mdx-bundler/client"
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticProps,InferGetStaticPropsType } from 'next'
 import React from "react"
 import Layout from "@/ui/Layout"
 import Image from "next/image"
-import { getPostData,getAllPostIds } from '@/lib/posts';
+// import { getPostData,getAllPostIds } from '@/lib/posts';
 import { ParsedUrlQuery } from 'querystring'
 import {readingTime} from "@/lib/readingtime"
 import { NextSeo } from 'next-seo'
 import {FiEdit}from "react-icons/fi"
 import { createOgImage } from '@/lib/createOgImage'
+import { allBlogs } from 'contentlayer/generated'
+import type { Blog } from ".contentlayer/generated"
+import { useMDXComponent } from "next-contentlayer/hooks"
+import Link from "next/link"
 interface Data{
     title:string
     description:string
     publishedAt:string
-    contentHtml:string;
 }
 interface Props{
     data:Data 
@@ -25,42 +28,38 @@ interface Props{
 interface IParams extends ParsedUrlQuery {
     slug: string;
 }
-
-export async function getStaticPaths() {
-    const paths = getAllPostIds();
+export const getStaticPaths=()=>{
     return {
-      paths,
-      fallback: false,
-    };
-  }
-  
-  
+        paths:allBlogs.map((p)=>({params:{slug:p.slug}})),
+        fallback:false 
+    }
+}
 
-  export const  getStaticProps:GetStaticProps=async({params})=> {
-    const {slug}=params as IParams 
-    const data=await getPostData(slug)
-    return {  
-       props:{
-         data,
-         slug
-          }
+export const getStaticProps: GetStaticProps<{
+    post:Blog
+}>=async({params})=>{
+    const post=allBlogs.find((post)=>post.slug===params?.slug)!
+    return {
+        props:{
+            post,
         }
+    }
 }
 
 export default function PostPage(
 {
-    data,
-    slug
-}:Props
+  post 
+}:InferGetStaticPropsType<typeof getStaticProps>
 ) {
-    const url=`https://aklite4.netlify.app/blog/${slug}`
-    const title=`${data.title} | aklite4.netlify.app`
-    const minutesToRead= readingTime(data.contentHtml)
+    const url=`https://aklite4.netlify.app/blog/${post.slug}`
+    const title=`${post.title} | aklite4.netlify.app`
+    const minutesToRead=readingTime(post.body.html)
 
     const ogImage=createOgImage({
-        title:data.title, 
-        meta:"aklite4.netlify.app . " + data.publishedAt
+        title:post.title, 
+        meta:"aklite4.netlify.app . " + post.publishedAt
     }) 
+    const MDXContent = useMDXComponent(post.body.raw)
     return (
         <>
         <meta 
@@ -73,62 +72,48 @@ export default function PostPage(
         Tools I like to use NextJs Tailwind css ReactQuery"
         />
             <NextSeo
-            title={data.title}
-            description={data.description}
+            title={post.title}
+            description={post.description}
             canonical={url}
             openGraph={{
                 url,
                 title,
-                description:data.description,
+                description:post.description,
                 images:[
                    {
                      url:ogImage,
                      width:1600,
                      height:836,
-                     alt:data.title,
+                     alt:post.title,
                 },
                 ],
             }}
             />
-        <Layout>
-            <div className="container max-w-3xl px-4 mx-auto mt-12 ">
-                <div
-                    className="md:flex  md:mt-4 md:gap-12 md:space-x-2 md:text-gray-600 md:mb-4
-                    hidden
-                    "
-                >
-                    <Image
-                        src="/ayush.jpg"
-                        height={80}
-                        width={80}
-                        className="rounded-full"
-                        alt="Ayush Kumar Icon"
-                    /> 
-                    <div>
-                        <p className='text-xl font-light'>Ayush Kumar</p>
-                        <p className='italic'>
-                        I am a frontend developer. I love working in React Projects.
-                        I keep on exploring frameworks,
-                        Intrested in Open Source Projects, 
-                        Hackathon enthusiast.
-                        </p>
-                    </div>
-                    </div>
-                        <div>
-                            <h1
-                            className='text-4xl font-semibold mb-4'
-                            >{data.title}
-                            </h1>
-                            <p className='font-light my-3'>{data.publishedAt} . {minutesToRead} min Read</p>
-                            <div className='text-xl font-normal leading-8' dangerouslySetInnerHTML={{ __html: data.contentHtml }} />
-                        </div>
-                        <hr />
-                        <div className='flex gap-4 mt-5 items-center'>
-                        <FiEdit className=''/> 
-                        <p className=''>Edit on Github</p>
-                        </div>
+         <Layout>
+        <div>
+          <h1 className="text-2xl font-medium sm:text-4xl text-rose-50/90">
+            {post.title}
+          </h1>
+
+          <div className="flex items-center mt-2 space-x-2 text-lg text-rose-100/70">
+            <div>
+              <Link href="/">
+                <a className="hover:text-fuchsia-300/90">Ayush</a>
+              </Link>
             </div>
-        </Layout>
+
+            <div className="text-rose-100/30">&middot;</div>
+
+            <div>{post.publishedAt}</div>
+          </div>
+
+          <div className="mt-10 text-lg text-gray-300/90">
+            <MDXContent
+              
+            />
+          </div>
+        </div>
+      </Layout>
         </>
     )
 }

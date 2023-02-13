@@ -22,6 +22,7 @@
       "@/ui/*": [
         "ui/*"
       ],
+      "contentlayer/generated": ["./.contentlayer/generated"],
       "@/lib/*":["lib/*"]
     },
     "incremental": true
@@ -29,7 +30,8 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules"
