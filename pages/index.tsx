@@ -76,7 +76,7 @@ export default function Home({
               title={post.title}
               text={post.description}
               href={post.slug}
-              
+              meta={[post.publishedAt]}
               />
              })}
             <div className="mt-8 space-y-12">

@@ -4,9 +4,11 @@ import React from "react"
 import { LinkPreview } from "@/ui/LinkPreview"
 import { Playground } from "@/ui/Playground"
 import { FOCUS_VISIBLE_OUTLINE,LINK_STYLES} from "@/lib/constants"
+import Link from "next/link"
 import cx from "clsx"
 export const components = {
- 
+  LinkPreview,
+  Playground,
   h1: (props: any) => (
     <h1 className="mt-8 mb-4 text-5xl font-medium" {...props} />
   ),
@@ -34,9 +36,9 @@ export const components = {
     }
 
     return (
-      <NextLink href={href} passHref>
+      <Link href={href}>
         <a className={cx(LINK_STYLES, FOCUS_VISIBLE_OUTLINE)} {...props} />
-      </NextLink>
+      <Link>
     )
   },
   hr: (props: any) => <hr {...props} />,

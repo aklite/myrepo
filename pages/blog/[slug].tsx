@@ -12,8 +12,8 @@ import {readingTime} from "@/lib/readingtime"
 import { NextSeo } from 'next-seo'
 import {FiEdit}from "react-icons/fi"
 import { createOgImage } from '@/lib/createOgImage'
-import { allBlogs } from 'contentlayer/generated'
-import type { Blog } from ".contentlayer/generated"
+import { allBlogs,type Blog } from 'contentlayer/generated'
+
 import { useMDXComponent } from "next-contentlayer/hooks"
 import Link from "next/link"
 interface Data{
@@ -41,25 +41,26 @@ export const getStaticProps: GetStaticProps<{
     const post=allBlogs.find((post)=>post.slug===params?.slug)!
     return {
         props:{
-            post,
+            post
         }
     }
 }
-
+const MyButton: React.FC = () => <button>Click me</button>
 export default function PostPage(
 {
   post 
 }:InferGetStaticPropsType<typeof getStaticProps>
 ) {
+  const MDXContent = useMDXComponent(post.body.code)
     const url=`https://aklite4.netlify.app/blog/${post.slug}`
     const title=`${post.title} | aklite4.netlify.app`
-    const minutesToRead=readingTime(post.body.html)
+    const minutesToRead=readingTime(post.body.raw)
 
     const ogImage=createOgImage({
         title:post.title, 
         meta:"aklite4.netlify.app . " + post.publishedAt
     }) 
-    const MDXContent = useMDXComponent(post.body.raw)
+   
     return (
         <>
         <meta 
@@ -97,7 +98,7 @@ export default function PostPage(
 
           <div className="flex items-center mt-2 space-x-2 text-lg text-rose-100/70">
             <div>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a className="hover:text-fuchsia-300/90">Ayush</a>
               </Link>
             </div>
@@ -109,7 +110,9 @@ export default function PostPage(
 
           <div className="mt-10 text-lg text-gray-300/90">
             <MDXContent
-              
+              components={{
+                ...components
+              }}
             />
           </div>
         </div>

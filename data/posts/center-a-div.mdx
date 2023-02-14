@@ -4,9 +4,6 @@ description: "Inspired by Josh Comeau, I've recreated a like button that delight
 publishedAt: 2021-05-09
 ---
 
-<Playground description="What we're building today">
-  <LikeButton2 id="a-like-button-that-likes-you-back" />
-</Playground>
 
 I'm a big fan of <LinkPreview url="https://www.joshwcomeau.com/">Josh Comeau's work</LinkPreview>. The like button on his blog is one of the most delightful UI elements I've come across. It's also a deceptively complex component (I honestly thought I could re-implement it in an hour, haha) that contains an SVG, sounds, mouse tracking, animations and of course, exploding confetti. 🎉
 
@@ -16,14 +13,10 @@ I started by writing down everything I noticed with Josh's component and ended u
 
 Although I didn't have the time to recreate everything, I thought I'd try to get the basic functionality down and maybe add some animations. Here's how my version works:
 
-import { LikeButtonDemo } from "../ui/playgrounds/LikeButtonDemo"
-import { LikeButton2 } from "../ui/LikeButton2"
+
 
 ### The Heart
 
-<Playground>
-  <LikeButtonDemo isSkeleton />
-</Playground>
 
 At its most basic level, the like button is an `SVG` with two rectangles "under" a heart shaped `mask`. The first rectangle is filled with gray and serves as the background. The second rectangle is filled with a gradient and is what fills the heart as the user clicks. To animate the fill, I used transform and translate to position the gradient offscreen. I then filled the heart, by translating the y axis of the gradient up until the user hits the maximum number of likes (3 at most). For the purpose of the demo the gradient is also translating down so you can keep interacting. Try clicking above ☝️
 
@@ -31,17 +24,11 @@ I'm using `framer-motion` to help with the easing between each animation state. 
 
 ### Making it playful
 
-<Playground>
-  <LikeButtonDemo enableEmojis initialLikes={0} />
-</Playground>
 
 We can make things a little more playful and show our appreciation for the user liking our content by using the world's most expressive language: Emojis! 👍 🙏 🥰
 
 ### Persisting state
 
-<Playground description="This component persists data, like and refresh the page to see it.">
-  <LikeButton2 id="a-like-button-that-likes-you-back-db" />
-</Playground>
 
 A like button is not very useful if users can't see each other's likes or the like count is lost whenever the user leaves the page.
 
@@ -55,9 +42,6 @@ We can use the post slug and a hashed user IP address to create a unique id. We 
 
 ### Finishing touches
 
-<Playground description="The component's loading state ☝️">
-  <LikeButtonDemo isLoading />
-</Playground>
 
 To complete the circle, when the user first loads the page, we send a `GET` request to the api route to retrieve data for the post. I'm using [SWR](https://swr.vercel.app/) to simplify the data fetching process. With very little ceremony, SWR gives us a loading state, client side caching, revalidation on page focus and optimistic UI (increment the like count instantly while updating the database in the background).
 

@@ -3,9 +3,7 @@ import Layout from "@/ui/Layout"
 import React from "react"
 
 import type { InferGetStaticPropsType } from "next"
-// import fs from 'fs'
-// import path from 'path'
-// import matter from 'gray-matter'
+
 import Head from "next/dist/shared/lib/head"
 import { allBlogs } from ".contentlayer/generated"
 import { pick } from "contentlayer/client"
@@ -44,7 +42,7 @@ export default function BlogPage({ posts }:InferGetStaticPropsType<typeof getSta
               title={post.title}
               text={post.description}
               href={post.slug}
-             
+              meta={[post.publishedAt]}
               />
             ))}
           </div>
