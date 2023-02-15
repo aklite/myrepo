@@ -3,15 +3,14 @@ import {
     defineDocumentType,
     makeSource,
   } from "contentlayer/source-files"
-  import { format, parseISO } from "date-fns"
+
   import rehypeAutolinkHeadings from "rehype-autolink-headings"
   import rehypeSlug from "rehype-slug"
   import remarkGfm from "remark-gfm"
   import { HEADING_LINK_ANCHOR } from "./lib/constants"
-  
+  import highlight from 'rehype-highlight'
   const computedFields: ComputedFields = {
-   
-    
+
     slug: {
       type: "string",
       resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
@@ -52,6 +51,7 @@ import {
             },
           },
         ],
+        highlight
       ],
     },
   })

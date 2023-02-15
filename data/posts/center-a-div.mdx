@@ -1,11 +1,15 @@
 ---
-title: "A like button that likes you back"
-description: "Inspired by Josh Comeau, I've recreated a like button that delightfully animates and persists state to a database."
-publishedAt: 2021-05-09
+title: "Centering things in css"
+description: "Centering things in CSS is hard"
+publishedAt: "15th February, 2023"
 ---
 
 
-I'm a big fan of <LinkPreview url="https://www.joshwcomeau.com/">Josh Comeau's work</LinkPreview>. The like button on his blog is one of the most delightful UI elements I've come across. It's also a deceptively complex component (I honestly thought I could re-implement it in an hour, haha) that contains an SVG, sounds, mouse tracking, animations and of course, exploding confetti. 🎉
+
+I'm a big fan of <LinkPreview url="https://www.joshwcomeau.com/">
+Josh Comeau's work</LinkPreview>. The like button on his blog is one 
+of the most delightful UI elements I've come across. It's also a deceptively 
+complex component (I honestly thought I could re-implement it in an hour, haha) that contains an SVG, sounds, mouse tracking, animations and of course, exploding confetti. 🎉
 
 After reading his [How I built my blog](https://www.joshwcomeau.com/blog/how-i-built-my-blog/) article where he talked about persisting the number of likes to a database, I knew I wanted to experiment creating something similar. I thought this would be a good example to begin my 30 day front-end challenge because it's an isolated component that connects the front-end with the back-end.
 
@@ -18,6 +22,7 @@ Although I didn't have the time to recreate everything, I thought I'd try to get
 ### The Heart
 
 
+
 At its most basic level, the like button is an `SVG` with two rectangles "under" a heart shaped `mask`. The first rectangle is filled with gray and serves as the background. The second rectangle is filled with a gradient and is what fills the heart as the user clicks. To animate the fill, I used transform and translate to position the gradient offscreen. I then filled the heart, by translating the y axis of the gradient up until the user hits the maximum number of likes (3 at most). For the purpose of the demo the gradient is also translating down so you can keep interacting. Try clicking above ☝️
 
 I'm using `framer-motion` to help with the easing between each animation state. The first animation grows the hearts size on hover and click, and the second animation gently translates the gradients position.
@@ -28,6 +33,7 @@ I'm using `framer-motion` to help with the easing between each animation state. 
 We can make things a little more playful and show our appreciation for the user liking our content by using the world's most expressive language: Emojis! 👍 🙏 🥰
 
 ### Persisting state
+
 
 
 A like button is not very useful if users can't see each other's likes or the like count is lost whenever the user leaves the page.
@@ -56,4 +62,3 @@ To complete the circle, when the user first loads the page, we send a `GET` requ
 ### Conclusion
 
 Not quite Josh Comeau level, but I had fun nonetheless. Comparing my solution to Josh's really shows how you can keep pushing even the most simple UI elements to the next level until they are a joy and delight to use.
-

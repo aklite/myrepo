@@ -4,7 +4,6 @@ import React from "react"
 import { LinkPreview } from "@/ui/LinkPreview"
 import { Playground } from "@/ui/Playground"
 import { FOCUS_VISIBLE_OUTLINE,LINK_STYLES} from "@/lib/constants"
-import Link from "next/link"
 import cx from "clsx"
 export const components = {
   LinkPreview,
@@ -22,25 +21,6 @@ export const components = {
     <h4 className="mt-6 mb-5 text-lg font-medium" {...props} />
   ),
   p: (props: any) => <p className="mb-5 leading-7" {...props} />,
-  a: ({ href = "", ...props }) => {
-    if (href.startsWith("http")) {
-      return (
-        <a
-          className={cx(LINK_STYLES, FOCUS_VISIBLE_OUTLINE)}
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          {...props}
-        />
-      )
-    }
-
-    return (
-      <Link href={href}>
-        <a className={cx(LINK_STYLES, FOCUS_VISIBLE_OUTLINE)} {...props} />
-      <Link>
-    )
-  },
   hr: (props: any) => <hr {...props} />,
   ul: (props: any) => <ul className="mb-6" {...props} />,
   ol: (props: any) => (

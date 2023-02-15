@@ -17,7 +17,7 @@ import { allBlogs,type Blog } from 'contentlayer/generated'
 import { useMDXComponent } from "next-contentlayer/hooks"
 import Link from "next/link"
 interface Data{
-    title:string
+    title:string 
     description:string
     publishedAt:string
 }
@@ -41,11 +41,11 @@ export const getStaticProps: GetStaticProps<{
     const post=allBlogs.find((post)=>post.slug===params?.slug)!
     return {
         props:{
-            post
+            post 
         }
     }
 }
-const MyButton: React.FC = () => <button>Click me</button>
+
 export default function PostPage(
 {
   post 
@@ -108,11 +108,13 @@ export default function PostPage(
             <div>{post.publishedAt}</div>
           </div>
 
-          <div className="mt-10 text-lg text-gray-300/90">
-            <MDXContent
-              components={{
+          <div className="mt-10 text-lg text-rose-100/70">
+            <MDXContent 
+             components={
+              {
                 ...components
-              }}
+              }
+             }
             />
           </div>
         </div>

@@ -5,7 +5,7 @@ export function Playground({
     description
 }:{
     children:React.ReactNode
-    description?:string
+    description?:string 
 }){
     return ( 
         <div className="mb-6 md:-mx-10">

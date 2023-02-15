@@ -71,13 +71,7 @@ export default function Home({
               Thoughts on what I&apos;m learning and building in web development
             </h4>
              {posts.map((post)=>{
-              return <ContentLink 
-              key={post.slug}
-              title={post.title}
-              text={post.description}
-              href={post.slug}
-              meta={[post.publishedAt]}
-              />
+              return <BlogPostPreview key={post.slug} {...post}/>
              })}
             <div className="mt-8 space-y-12">
               
