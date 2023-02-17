@@ -40,6 +40,7 @@ export const usePostViews=(slug:string,config?:SWRConfiguration)=>{
     return {
         views,
         isLoading:!error && !views,
-        increment
+        increment,
+        isError: !!error 
     }
 }

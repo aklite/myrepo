@@ -92,7 +92,7 @@ export default function PostPage(
             />
          <Layout>
         <div>
-          <h1 className="text-2xl font-medium sm:text-4xl text-rose-50/90">
+          <h1 className="text-2xl font-medium sm:text-4xl text-rose-100/90">
             {post.title}
           </h1>
 

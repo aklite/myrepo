@@ -7,7 +7,7 @@ import {
   import rehypeAutolinkHeadings from "rehype-autolink-headings"
   import rehypeSlug from "rehype-slug"
   import remarkGfm from "remark-gfm"
-  import { HEADING_LINK_ANCHOR } from "./lib/constants"
+  import { HEADING_LINK_ANCHOR } from "@/lib/constants"
   import highlight from 'rehype-highlight'
   const computedFields: ComputedFields = {
 

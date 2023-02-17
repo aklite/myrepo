@@ -15,6 +15,7 @@ import type { PostMeta } from "types/post"
 import { allBlogs } from 'contentlayer/generated'
 import { compareDesc } from "date-fns"
 import type { InferGetStaticPropsType } from 'next'
+import { BlogPostPreview } from "@/ui/BlogPostPreview"
 
 
 export function getStaticProps() {
