@@ -37,10 +37,7 @@ export default function BlogPage({ posts }:InferGetStaticPropsType<typeof getSta
             {posts.map((post) => (
               <ContentLink  
               key={post.slug} 
-              
-              
               href={post.slug}
-              
               >
                 
               </ContentLink>
