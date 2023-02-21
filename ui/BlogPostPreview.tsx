@@ -33,19 +33,14 @@ const Metrics=({
 export const BlogPostPreview=(
     post:Pick<Blog,"slug" | "title" | "description">
 )=>{
-    const {enabled,intersectionRef}=useEnabledOnFirstIntersection()
-    return (
-        <div ref={intersectionRef}>
-           <ContentLink 
-           key={post.slug}
-           href={`/blog/${post.slug}`}
-           > <ContentLink.Title>{post.title}</ContentLink.Title>
 
-            <div>
-                {enabled ? <Metrics slug={post.slug}/>:null}
-            </div>
-            <ContentLink.Text>{post.description}</ContentLink.Text>
-           </ContentLink>
-        </div>
+    return (
+      <div>
+        <ContentLink key={post.slug} href={`blog/${post.slug}`}>
+        
+          <ContentLink.Title>{post.title}</ContentLink.Title>
+          <ContentLink.Text>{post.description}</ContentLink.Text>
+        </ContentLink>
+      </div>
     )
-}
+  }

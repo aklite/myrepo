@@ -3,14 +3,9 @@ import {
     defineDocumentType,
     makeSource,
   } from "contentlayer/source-files"
-
-  import rehypeAutolinkHeadings from "rehype-autolink-headings"
-  import rehypeSlug from "rehype-slug"
-  import remarkGfm from "remark-gfm"
-  import { HEADING_LINK_ANCHOR } from "@/lib/constants"
-  import highlight from 'rehype-highlight'
-  const computedFields: ComputedFields = {
-
+  import remarkGfm from 'remark-gfm'
+  import rehypePrettyCode from "rehype-pretty-code"
+    const computedFields: ComputedFields = {
     slug: {
       type: "string",
       resolve: (doc) => doc._raw.sourceFileName.replace(/\.mdx$/, ""),
@@ -35,24 +30,8 @@ import {
     documentTypes: [Blog],
   
     mdx: {
-      esbuildOptions(options) {
-        options.target = "esnext"
-        return options
-      },
-      remarkPlugins: [remarkGfm],
-      rehypePlugins: [
-        rehypeSlug,
-        [
-          rehypeAutolinkHeadings,
-          {
-            behavior: "wrap",
-            properties: {
-              className: [HEADING_LINK_ANCHOR],
-            },
-          },
-        ],
-        highlight
-      ],
+      rehypePlugins:[[rehypePrettyCode]],
+      remarkPlugins:[remarkGfm]
     },
   })
   

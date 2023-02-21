@@ -12,7 +12,7 @@ import type { PostMeta } from "types/post"
 // import fs from 'fs'
 // import path from 'path'
 // import matter from 'gray-matter'
-import { allBlogs } from 'contentlayer/generated'
+import {allBlogs} from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 import type { InferGetStaticPropsType } from 'next'
 import { BlogPostPreview } from "@/ui/BlogPostPreview"

@@ -1,0 +1,44 @@
+div[data-rehype-pretty-code-fragment] {
+    background-color: rgb(0, 0, 0);
+    padding-block: 0.5rem;
+  }
+  /* div[]{
+    background-color: rgba(197, 181, 182, 0.1);
+  } */
+  div[data-rehype-pretty-code-fragment] .line {
+    /* stylistic preferences */
+    background-color: black;
+    padding-left: 2rem !important;
+  }
+  pre > code {
+    background-color: black !important;
+    padding: 0 !important;
+  }
+  code {
+    counter-reset: line;
+    color:rgba(78,56,42,0.9) !important;
+    background-color: rgba(235,225,216,0.6) !important;
+  }
+   
+  code > .line::before {
+    counter-increment: line;
+    content: counter(line);
+    /* Other styling */
+    display: inline-block;
+    width: 1rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
+   
+  code[data-line-numbers-max-digits="2"] > .line::before {
+    width: 3rem;
+  }
+   
+  code[data-line-numbers-max-digits="3"] > .line::before {
+    width: 3rem;
+  }
+  ::selection {
+    /* Change highlight background color to black */
+    background: #fffbfb;
+  }

@@ -52,13 +52,13 @@ export default function PostPage(
 }:InferGetStaticPropsType<typeof getStaticProps>
 ) {
   const MDXContent = useMDXComponent(post.body.code)
-    const url=`https://aklite4.netlify.app/blog/${post.slug}`
-    const title=`${post.title} | aklite4.netlify.app`
+    const url=`https://aklite.study/blog/${post.slug}`
+    const title=`${post.title} | aklite.study`
     const minutesToRead=readingTime(post.body.raw)
 
     const ogImage=createOgImage({
         title:post.title, 
-        meta:"aklite4.netlify.app . " + post.publishedAt
+        meta:"aklite.study . " + post.publishedAt
     }) 
    
     return (
@@ -91,24 +91,18 @@ export default function PostPage(
             }}
             />
          <Layout>
-        <div>
-          <h1 className="text-2xl font-medium sm:text-4xl text-rose-100/90">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-2xl font-medium sm:text-4xl text-black-600 ">
             {post.title}
           </h1>
 
-          <div className="flex items-center mt-2 space-x-2 text-lg text-rose-100/70">
-            <div>
-              <Link href="/" legacyBehavior>
-                <a className="hover:text-fuchsia-300/90">Ayush</a>
-              </Link>
-            </div>
-
+          <div className="flex items-center mt-2 space-x-2 text-base text-black-100/90">
             <div className="text-rose-100/30">&middot;</div>
-
             <div>{post.publishedAt}</div>
+            <div>{minutesToRead} min read</div>
           </div>
 
-          <div className="mt-10 text-lg text-rose-100/70">
+          <div className="mt-10 text-lg text-black-600">
             <MDXContent 
              components={
               {

@@ -4,15 +4,15 @@ import React from "react"
 import { LinkPreview } from "@/ui/LinkPreview"
 import { Playground } from "@/ui/Playground"
 import { FOCUS_VISIBLE_OUTLINE,LINK_STYLES} from "@/lib/constants"
-import cx from "clsx"
+
 export const components = {
   LinkPreview,
   Playground,
   h1: (props: any) => (
-    <h1 className="mt-8 mb-4 text-5xl font-medium" {...props} />
+    <h1 className="mt-8 mb-4 text-3xl font-medium" {...props} />
   ),
   h2: (props: any) => (
-    <h2 className="mt-8 mb-3 text-3xl font-medium" {...props} />
+    <h2 className="mt-8 mb-3 text-2xl font-medium" {...props} />
   ),
   h3: (props: any) => (
     <h3 className="mt-8 mb-5 text-xl font-medium" {...props} />
@@ -20,7 +20,7 @@ export const components = {
   h4: (props: any) => (
     <h4 className="mt-6 mb-5 text-lg font-medium" {...props} />
   ),
-  p: (props: any) => <p className="mb-5 leading-7" {...props} />,
+  p: (props: any) => <p className="mb-5 mt-4 leading-9 text-[24px]" {...props} />,
   hr: (props: any) => <hr {...props} />,
   ul: (props: any) => <ul className="mb-6" {...props} />,
   ol: (props: any) => (
