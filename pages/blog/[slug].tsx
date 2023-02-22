@@ -113,7 +113,7 @@ export default function PostPage(
           </div>
           <hr />
           <div className='flex gap-4 mt-5 items-center'>
-            <a href={`https://github.com/aklite/myrepo/tree/main/data/posts/${post.slug}.md`}
+            <a href={`https://github.com/aklite/myrepo/tree/main/data/posts/${post.slug}.mdx`}
               target="_blank"
               rel="noreferrer"
             >
