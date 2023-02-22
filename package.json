@@ -22,6 +22,7 @@
     "@types/glob": "^8.0.1",
     "@types/prismjs": "^1.26.0",
     "clsx": "^1.2.1",
+    "contentlayer": "^0.3.0",
     "date-fns": "^2.29.3",
     "esbuild": "^0.17.5",
     "eslint": "8.32.0",
