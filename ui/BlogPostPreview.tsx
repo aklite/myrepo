@@ -1,4 +1,3 @@
-import { useEnabledOnFirstIntersection } from "@/lib/useEnabledOnFirstIntersection"
 import type {Blog} from "contentlayer/generated"
 import { ContentLink } from "@/ui/ContentLink"
 import { usePostViews } from "@/lib/usePostViews"
