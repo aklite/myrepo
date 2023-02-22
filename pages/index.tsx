@@ -4,35 +4,46 @@ import Layout from "@/ui/Layout"
 import Projects from "@/ui/Projects"
 import Skills from "@/ui/Skills"
 import Words from "@/ui/Words"
-import { BlogPreview } from "@/ui/BlogPreview"
+import { ContentLink } from "@/ui/ContentLink"
 import Head from "next/head"
 // import { getAllPostsMeta } from "@/ui/mdx"
 import React from "react"
 import type { PostMeta } from "types/post"
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+// import fs from 'fs'
+// import path from 'path'
+// import matter from 'gray-matter'
+import {allBlogs} from "contentlayer/generated"
+import { compareDesc } from "date-fns"
+import type { InferGetStaticPropsType } from 'next'
+import { BlogPostPreview } from "@/ui/BlogPostPreview"
+
+
 export function getStaticProps() {
-  const files=fs.readdirSync(path.join('posts'))
-  const posts=files.map((fileName)=>{
-    const slug=fileName.replace('.mdx','')
-    const markdownWithMeta=fs.readFileSync(path.join('posts',fileName),'utf-8') 
-    const {data:frontmatter,content}=matter(markdownWithMeta) 
-    return { 
-      slug,
-      frontmatter,
-      content 
-    }
-  })
- 
-  return {
-    props:{
-      posts
-    }
+  // const files=fs.readdirSync(path.join('posts'))
+  // const posts=files.map((fileName)=>{
+  //   const slug=fileName.replace('.mdx','')
+  //   const markdownWithMeta=fs.readFileSync(path.join('posts',fileName),'utf-8') 
+  //   const {data:frontmatter,content}=matter(markdownWithMeta) 
+  //   return { 
+  //     slug,
+  //     frontmatter,
+  //     content 
+  //   }
+  // })
+ const posts=allBlogs.sort((a,b)=>{
+  return compareDesc(new Date(a.publishedAt),new Date(b.publishedAt))
+ })
+ return {
+  props:{
+    posts 
   }
+ }
+ 
 }
 
-export default function Home({ posts}:{posts:PostMeta[]}) {
+export default function Home({ 
+  posts 
+}:InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout>
       <Head>
@@ -61,7 +72,7 @@ export default function Home({ posts}:{posts:PostMeta[]}) {
               Thoughts on what I&apos;m learning and building in web development
             </h4>
              {posts.map((post)=>{
-              return <BlogPreview key={post.slug} post={post}/>
+              return <BlogPostPreview key={post.slug} {...post}/>
              })}
             <div className="mt-8 space-y-12">
               

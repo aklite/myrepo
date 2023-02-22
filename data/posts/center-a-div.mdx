@@ -1,0 +1,96 @@
+---
+title: "Centering things in CSS"
+description: "Learn CSS the easy way"
+publishedAt: "15th February, 2023"
+---
+
+# To Center Thing Horizontally 
+## Inline elements
+
+To center inline elements we can use `text-align`
+```css showLineNumbers
+.box{
+   text-align:center;
+}
+```
+
+## Block level element 
+By default block level elements take 100% width.
+To center block level elements we can set its `margin-left` and `margin-right` to zero.
+```css
+.box{
+   margin:0 auto;
+}
+```
+
+# Centering Vertically
+
+## Inline element
+We can use equal padding above and below.
+```css 
+.box{
+   padding-top:20px;
+   padding-bottom:20px;
+} 
+```
+
+## Block element
+Method 1 using FlexBox 
+
+```css 
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+```
+## Method 2. Center Block elements vertically.
+```css
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+``` 
+
+# Centering elements Horizontally & Vertically
+We can combine above techinques 
+# using flexbox 
+```css 
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+# using Grid 
+```css 
+body, html {
+  height: 100%;
+  display: grid;
+}
+span { 
+  margin: auto;
+}
+```
+
+# using position absolute (Method 2)
+```css 
+.parent {
+  position: relative;
+}
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+I hope you learnt something!
+
+Happy Coding!! 

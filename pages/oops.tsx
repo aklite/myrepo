@@ -8,7 +8,7 @@ export default function oops() {
         <div>
             <Layout>
                 <div className="text-center my-28 ">
-                <Image
+                    <Image
             src="/nervous.png"
             width={64}
             height={64}
@@ -16,7 +16,7 @@ export default function oops() {
             alt=""
          /> <p>Uh oh. It looks like this page isn&apos;t ready yet.</p>
                     <HighlightOnHover>
-                   
+                               
                         <Link href="/" legacyBehavior>
                             <a className="font-medium">Go back</a>
                         </Link>
