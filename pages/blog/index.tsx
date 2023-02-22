@@ -34,13 +34,9 @@ export default function BlogPage({ posts }: InferGetStaticPropsType<typeof getSt
             <h1 className="text-2xl text-gray-500/90">Posts</h1>
           </div>
           <div className="mt-12 space-y-12 ">
-           
-              
                 {posts.map((post) => (
                   <BlogPostPreview key={post.slug} {...post} />
                 ))}
-             
-            
           </div>
         </div>
       </div>

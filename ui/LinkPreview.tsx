@@ -50,7 +50,7 @@ export const LinkPreview = ({
   // triggers the <LinkPreview>.
   React.useEffect(() => {
     fetch(`/_next/image?url=${encodeURIComponent(src)}&w=256&q=${q}`)
-  }, [])
+  }, [src])
 
   return (
     <>
