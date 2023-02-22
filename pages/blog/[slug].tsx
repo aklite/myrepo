@@ -136,16 +136,6 @@ export default function PostPage(
               }
             />
           </div>
-          <hr />
-          <div className='flex gap-4 mt-5 items-center'>
-            <a href={`https://github.com/aklite/myrepo/tree/main/data/posts/${post.slug}.mdx`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FiEdit className='' />
-              <p className=''>Edit on Github</p>
-            </a>
-          </div>
         </div>
       </Layout>
     </>

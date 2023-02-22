@@ -1,5 +1,4 @@
 import { Transition } from "@headlessui/react"
-import { Slot } from "@radix-ui/react-slot"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 import clsx from "clsx"
 import Image from "next/image"
