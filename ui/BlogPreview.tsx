@@ -1,26 +1,45 @@
-import { format, parseISO } from "date-fns"
-import Link from "next/link"
-import React from "react"
-import type { PostMeta } from "types/post"
-
-
-
-export const BlogPreview = ({ post }: { post: PostMeta }) => {
-  return (
-       <div key={post.slug} className="my-8">
-        <h2 className="text-xl font-bold">
-            <Link href={`blog/${post.slug}`} legacyBehavior>
-            <a className="text-gray-800 transition-colors hover:text-gray-600">
-            {post.frontmatter.title}
-            </a>
-            </Link>
-        </h2>
-         
-            
-            <div className="text-sm text-gray-500">
-            {/* {format(parseISO(post.frontmatter.publishedAt), "yyyy mm dd")} */}
+import type {Blog} from "contentlayer/generated"
+import { ContentLink } from "@/ui/ContentLink"
+import { usePostViews } from "@/lib/usePostViews"
+import { LoadingDots } from "@/ui/LoadingDots"
+import { InlineMetric } from "@/ui/InlineMetric"
+const Metrics=({
+    slug
+}:{
+    slug:string
+})=>{
+    const {
+        views,
+        isLoading:viewIsLoading,
+        isError:viewIsError
+    }=usePostViews(slug);
+    return (
+        <div className="flex space-x-2 text-gray-500/90">
+            <div>
+                {
+                    viewIsError || viewIsLoading ? (
+                    <LoadingDots/>
+                    ) : (
+                     <InlineMetric key={views} stat={views} text="views"/>
+                    )
+                } 
             </div>
-            <div className="mt-3 text-gray-700">{post.frontmatter.description}</div>
-       </div >
-   ) 
+        </div>
+    )
 }
+
+
+export const BlogPostPreview=(
+    post:Pick<Blog,"slug" | "title" | "description">
+)=>{
+
+    return (
+      <div>
+        <ContentLink key={post.slug} href={`blog/${post.slug}`}>
+        
+          <ContentLink.Title>{post.title}</ContentLink.Title>
+          <ContentLink.Text>{post.description}</ContentLink.Text>
+        </ContentLink>
+      </div>
+    )
+  }
