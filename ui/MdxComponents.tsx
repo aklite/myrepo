@@ -1,12 +1,10 @@
 import NextImage from "next/image"
 import NextLink from "next/link"
 import React from "react"
-import { LinkPreview } from "@/ui/LinkPreview"
 import { Playground } from "@/ui/Playground"
 import { FOCUS_VISIBLE_OUTLINE,LINK_STYLES} from "@/lib/constants"
 
 export const components = {
-  LinkPreview,
   Playground,
   h1: (props: any) => (
     <h1 className="mt-8 mb-4 text-3xl font-medium" {...props} />
