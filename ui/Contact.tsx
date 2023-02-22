@@ -13,14 +13,6 @@ const Contact = ()=>{
         ayushkumar3936@gmail.com
           </a>
         <HighlightOnHover>
-            <a 
-            href="https://twitter.com/aklite9"
-            target="_blank"
-            className="font-medium"
-            rel="noreferrer"
-            >
-                Twitter
-            </a>
             </HighlightOnHover>,{" "}
             <HighlightOnHover>
                 <a 
