@@ -1,32 +1,36 @@
 ---
-title: "Centering things in CSS"
+title: "Centering Elements in CSS"
 description: "Learn CSS the easy way"
 publishedAt: "15th February, 2023"
 ---
 
-# To Center Thing Horizontally 
-## Inline elements
+##  To Center Elements Horizontally 
+###  Center an Inline element.
 
-To center inline elements we can use `text-align`
+To center inline elements we can use *text-align*
 ```css showLineNumbers
 .box{
    text-align:center;
 }
 ```
 
-## Block level element 
+###  Center a block level element
+
 By default block level elements take 100% width.
-To center block level elements we can set its `margin-left` and `margin-right` to zero.
+To center block level elements we can set its *margin-left* and *margin-right* to zero.
+
 ```css
 .box{
    margin:0 auto;
 }
 ```
 
-# Centering Vertically
+## Centering Elements Vertically 
 
-## Inline element
-We can use equal padding above and below.
+### Center an Inline element vertically  
+
+We can use equal padding above and below the inline element 
+
 ```css 
 .box{
    padding-top:20px;
@@ -34,8 +38,11 @@ We can use equal padding above and below.
 } 
 ```
 
-## Block element
-Method 1 using FlexBox 
+### Center a Block element vertically 
+### Method 1 using FlexBox  
+
+We need to set parent element's *display* as *flex* and *justify-content* to *center*
+*flex-direction* by default is set to *row* so we need to modify it to *column*.
 
 ```css 
 .parent {
@@ -44,7 +51,14 @@ Method 1 using FlexBox
   justify-content: center;
 }
 ```
-## Method 2. Center Block elements vertically.
+###  Center Block elements vertically. Alternative method 
+
+Set parent's position as relative and that of child element 
+as absolute. 
+
+Child element is pushed off from parent's top by 50%, using *top*
+and brought up by 50% of the height of the child element using *transform*.
+
 ```css
 .parent {
   position: relative;
@@ -56,9 +70,12 @@ Method 1 using FlexBox
 }
 ``` 
 
-# Centering elements Horizontally & Vertically
+## Centering elements Horizontally & Vertically
 We can combine above techinques 
-# using flexbox 
+
+Using flex box we can implement this. Setting parent elements *display* to *flex* and 
+*justify-content* and *align-items* to *center*.
+
 ```css 
 .parent {
   display: flex;
@@ -66,8 +83,9 @@ We can combine above techinques
   align-items: center;
 }
 ```
+### Alternative method 
+We can center elements vertically and horizontally using grid too.
 
-# using Grid 
 ```css 
 body, html {
   height: 100%;
@@ -78,7 +96,7 @@ span {
 }
 ```
 
-# using position absolute (Method 2)
+### Centering elements using *position:absolute* (Method 3)
 ```css 
 .parent {
   position: relative;
@@ -91,6 +109,6 @@ span {
 }
 ```
 
-I hope you learnt something!
+#### I hope you learnt something!
 
-Happy Coding!! 
+#### Happy Coding!! 

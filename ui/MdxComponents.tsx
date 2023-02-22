@@ -16,7 +16,7 @@ export const components:any = {
   h4: (props: any) => (
     <h4 className="mt-6 mb-5 text-lg font-medium" {...props} />
   ),
-  p: (props: any) => <p className="mb-5 mt-4 leading-9 text-[24px]" {...props} />,
+  p: (props: any) => <p className="mb-5 mt-4 leading-9 text-[22px] font-normal text-[#0A0A23]" {...props} />,
   hr: (props: any) => <hr {...props} />,
   ul: (props: any) => <ul className="mb-6" {...props} />,
   ol: (props: any) => (
