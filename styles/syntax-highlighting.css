@@ -1,6 +1,6 @@
 div[data-rehype-pretty-code-fragment] {
     background-color: rgb(0, 0, 0);
-    padding-block: 0.5rem;
+    padding-block: 1rem;
   }
   /* div[]{
     background-color: rgba(197, 181, 182, 0.1);
@@ -40,5 +40,5 @@ div[data-rehype-pretty-code-fragment] {
   }
   ::selection {
     /* Change highlight background color to black */
-    background: #fffbfb;
+    background: #2d4f45;
   }
