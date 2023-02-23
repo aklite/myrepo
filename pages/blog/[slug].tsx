@@ -117,9 +117,6 @@ export default function PostPage(
           <h1 className="sm:text-[50px] leading-9 text-3xl font-medium text-black-600 mb-5">
             {post.title}
           </h1>
-          <h2 className="sm:text-[27.5px] leading-10 text-2xl">
-            {post.description}
-          </h2>
           <div className="flex items-center mt-2 space-x-2 text-base text-black-100/90 top">
             
             <div>{post.publishedAt}</div>
@@ -127,6 +124,22 @@ export default function PostPage(
             <div>{minutesToRead} min read</div>
           </div>
 
+          {
+            post.image ? 
+            <div>
+              <Image src={post.image}
+              alt="Closures in JavaScript"
+              height={700}
+              width={900}
+              className="mb-4 mt-8"
+              />
+            </div>:null
+            
+          }
+          <h2 className="sm:text-[27.5px] leading-10 text-2xl">
+            {post.description}
+          </h2>
+          
           <div className="mt-10 text-lg text-black-600">
             <MDXContent
               components={

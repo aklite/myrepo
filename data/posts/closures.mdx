@@ -1,0 +1,59 @@
+---
+title: 'Closures in JavaScript'
+publishedAt: 'February 23, 2023'
+description: 'Closures is an important concept in JavaScript'
+image: 'https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+---
+##### Hey I am glad you are here! 
+## Basic Definition of Closure
+*A function along with its lexical scope bundled together is called a closure* 
+
+So what do we mean by lexical scope 🤔 lexical 
+scope means the place where the variable was created 
+
+Chatting is okay lets chat with code 😁
+```js
+fucntion x() {
+    var a=10 // local variable 
+    function y() {
+      console.log(a)
+    }
+    return y;
+}
+x() // 12
+```
+
+In the above code we have a function **x** within that we have another function **y**. 
+Function **x** creates local variable and function **y** prints it to console. 
+
+Function y dosen't have any local variable of its own but it 
+has the access to local variable of its parent function 
+**x** because of the Closure concept in JavaScript.
+
+*Functions in JavaScript remember where were they created*. 
+Function **y** stores a reference to the variable *a*. 
+
+```js
+fucntion x() {
+    
+    function y() {
+      console.log(a)
+    }
+    var a=10 // local variable 
+    a++;
+    return y;
+}
+x() // 11 
+```
+
+It dosen't matters where do we declare the variables. When the function is 
+created in the call stack then and there itself variables get declared. 
+
+Numerous Output questions can be formed on the basis of Closures concept. 
+
+That's it for this blog!!
+
+I hope you learnt something from my Blog!
+
+Thank you!! 😁
+
