@@ -14,11 +14,12 @@
 - Benifits of pre-rendering are that even if the our site's backend's server isn't working due to any of the arbitary reasons our site our site would be still ready to use.
 - I learnt how to use typescript in my React based projects. To learn typescript I used sometimes `typescript` [docs](https://www.typescriptlang.org/docs/) and  freecodecamp 
 - I knew how to use Tailwind in my projects. Got even better with it while making this portfolio.
+- I learnt Open Graph which is made by facebook, to preview my site in social media.
 
 ### What would I do next using my portfolio
 - I would write good reliable technical blogs.
 - starting a news letter for my blogs. 
-- Implement backend server for my portfolio to fetch views post comments reactions to blogs.
+- Implement backend server for my portfolio to fetch views, post comments, reactions to my blogs.
 
 ***Please hit that star button if you did liked my portfolio***
 
