@@ -12,7 +12,7 @@
 - SSG should be used while making Blogging site, Documentation 
 - SSR should be used in Social media apps. Chatting web-apps. 
 - Benifits of pre-rendering are that even if the our site's backend's server isn't working due to any of the arbitary reasons our site our site would be still ready to use.
-- I learnt how to use typescript in my React based projects. To learn typescript I used sometimes `typescript` [docs](https://www.typescriptlang.org/docs/) and  freecodecamp 
+- I learnt how to use typescript in my React based projects. To learn typescript I used sometimes `typescript` [docs](https://www.typescriptlang.org/docs/) and  freecodecamp's [youtube tutorial](https://youtu.be/30LWjhZzg50)
 - I knew how to use Tailwind in my projects. Got even better with it while making this portfolio.
 - I learnt Open Graph which is made by facebook, to preview my site in social media.
 
