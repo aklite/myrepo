@@ -8,7 +8,7 @@
 ### My learnings from making my Portfolio
 - I learnt about SSG (Static Site Generation) from [NextJs](https://nextjs.org/)
 - Static Site Generation (SSG) decreases page loadtime because url path and the data gets pre-rendered and implemented all this in my site.
-- I learnt about Static Site Rendering (SSR) Static Site Generation is used when the data changes frequently. 
+- I learnt about Static Site Rendering (SSR) is used when the data changes frequently. 
 - SSG should be used while making Blogging site, Documentation 
 - SSR should be used in Social media apps. Chatting web-apps. 
 - Benifits of pre-rendering are that even if the our site's backend's server isn't working due to any of the arbitary reasons our site our site would be still ready to use.
