@@ -24,6 +24,8 @@
 - starting a news letter for my blogs. 
 - Implement backend server for my portfolio to fetch views, post comments, reactions to my blogs.
 
-***Please hit that star button if you did find my portfolio usefull it means a lot to me Thank you 😁***
+## Your Support means a lot
+
+Give a ⭐ to the project if you liked it. :)
 
 
