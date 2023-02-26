@@ -1,6 +1,6 @@
 # Hey Everyone 👋🏻 
 
-[![GitHub views](https://img.shields.io/github/views/aklite/myrepo.svg?style=flat-square&label=Views)](https://github.com/aklite/myrepo)
+![views](https://komarev.com/ghpvc/?username=aklite&label=Total+Views&color=blue)
 
 ### This is my portfolio site Click [here](https://ayushhub.netlify.app) to visit
 
