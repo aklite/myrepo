@@ -36,7 +36,6 @@ export const BlogPostPreview=(
     return (
       <div>
         <ContentLink key={post.slug} href={`blog/${post.slug}`}>
-        
           <ContentLink.Title>{post.title}</ContentLink.Title>
           <ContentLink.Text>{post.description}</ContentLink.Text>
         </ContentLink>

@@ -14,7 +14,7 @@ export function ContentLink({
     <Link href={href} legacyBehavior>
       <a
         className={cx(
-          "block rounded-2xl bg-white/[2%] p-7 shadow-surface-elevation-low transition duration-300 hover:bg-black hover:text-white hover:shadow-surface-elevation-medium",
+          "block rounded-2xl bg-white/[2%] p-7 shadow-surface-elevation-low transition duration-300 hover:bg-white/[5%] hover:shadow-surface-elevation-medium",
           FOCUS_VISIBLE_OUTLINE,
         )}
       >
@@ -26,7 +26,7 @@ export function ContentLink({
 
 function Title({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-2xl transition duration-300 text-black-500 line-clamp-2 hover:text-black-400">
+    <h3 className="text-xl transition duration-300 text-rose-100/80 line-clamp-2 hover:text-rose-100/90">
       {children}
     </h3>
   )

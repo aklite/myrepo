@@ -1,5 +1,5 @@
 import { ContentLink } from "@/ui/ContentLink"
-import Layout from "@/ui/Layout"
+import {Layout} from "@/ui/Layout"
 import React from "react"
 import type { InferGetStaticPropsType } from "next"
 import { allBlogs } from "contentlayer/generated"

@@ -4,7 +4,7 @@ import { components } from "@/ui/MdxComponents"
 // import { getMDXComponent } from "mdx-bundler/client"
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import React from "react"
-import Layout from "@/ui/Layout"
+import{ Layout }from "@/ui/Layout"
 import Image from "next/image"
 // import { getPostData,getAllPostIds } from '@/lib/posts';
 import { ParsedUrlQuery } from 'querystring'
@@ -15,6 +15,9 @@ import { createOgImage } from '@/lib/createOgImage'
 import { allBlogs, type Blog } from 'contentlayer/generated'
 
 import { useMDXComponent } from "next-contentlayer/hooks"
+import { useIntersection } from "react-use"
+import { useEnabledOnFirstIntersection } from "@/lib/useEnabledOnFirstIntersection"
+import Link from "next/link"
 // import Link from "next/link"
 interface Data {
   title: string
@@ -60,6 +63,14 @@ export default function PostPage(
     title: post.title,
     meta: "aklite.study . " + post.publishedAt
   })
+  const intersectionRef = React.useRef(null)
+  const intersection = useIntersection(intersectionRef, {
+    root: null
+  })
+  let showNav = false
+  if (intersection && !intersection.isIntersecting) {
+    showNav = true
+  }
 
   return (
     <>
@@ -92,36 +103,22 @@ export default function PostPage(
       />
       <Layout>
         <div className="max-w-3xl mx-auto">
-           <div
-                    className="md:flex  md:mt-4 md:gap-12 md:space-x-2 md:text-gray-600 md:mb-8
-                    hidden
-                    "
-                >
-                    <Image
-                        src="/ayush.jpg"
-                        height={80}
-                        width={80}
-                        className="rounded-full"
-                        alt="Ayush Kumar Icon"
-                    /> 
-                      <div>
-                        <p className='text-xl font-light'>Ayush Kumar</p>
-                        <p className='italic'>
-                        I am a frontend developer. I love working in React Projects.
-                        I keep on exploring frameworks,
-                        Intrested in Open Source Projects, 
-                        Hackathon enthusiast.
-                        </p>
-                    </div>
-            </div>
-          <h1 className="sm:text-[50px] leading-9 text-3xl font-medium text-black-600 mb-5">
+          <h1 className="text-2xl font-medium text-rose-100/80 sm:text-4xl">
             {post.title}
           </h1>
-          <div className="flex items-center mt-2 space-x-2 text-base text-black-100/90 top">
+          <div className="flex flex-wrap items-center justify-between text-lg text-rose-100/40">
             
-            <div>{post.publishedAt}</div>
-            <div className="text-black-600 ">&middot;</div>
-            <div>{minutesToRead} min read</div>
+          <div className="flex mt-2 space-x-2">
+              <div>
+                <Link href="/" legacyBehavior>
+                  <a className="hover:text-rose-200/90">Ayush</a>
+                </Link>
+              </div>
+
+              <div className="text-rose-100/30">&middot;</div>
+
+              <div>{post.publishedAt}</div>
+            </div>
           </div>
 
           {

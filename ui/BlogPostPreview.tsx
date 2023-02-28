@@ -3,6 +3,7 @@ import { ContentLink } from "@/ui/ContentLink"
 import { usePostViews } from "@/lib/usePostViews"
 import { LoadingDots } from "@/ui/LoadingDots"
 import { InlineMetric } from "@/ui/InlineMetric"
+import { useEnabledOnFirstIntersection } from "@/lib/useEnabledOnFirstIntersection"
 const Metrics=({
     slug
 }:{
@@ -32,12 +33,12 @@ const Metrics=({
 export const BlogPostPreview=(
     post:Pick<Blog,"slug" | "title" | "description">
 )=>{
-
+    const { enabled, intersectionRef } = useEnabledOnFirstIntersection()
     return (
-      <div>
+      <div  ref={intersectionRef}>
         <ContentLink key={post.slug} href={`blog/${post.slug}`}>
-        
           <ContentLink.Title>{post.title}</ContentLink.Title>
+          {enabled ? <Metrics slug={post.slug} /> : null}
           <ContentLink.Text>{post.description}</ContentLink.Text>
         </ContentLink>
       </div>

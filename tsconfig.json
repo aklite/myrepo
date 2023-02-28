@@ -23,7 +23,8 @@
         "ui/*"
       ],
       "contentlayer/generated": ["./.contentlayer/generated"],
-      "@/lib/*":["lib/*"]
+      "@/lib/*":["lib/*"],
+      "@/public":["public/*"]
     },
     "incremental": true
   },

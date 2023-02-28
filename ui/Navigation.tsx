@@ -1,53 +1,27 @@
+import { FOCUS_VISIBLE_OUTLINE } from "@/lib/constants"
 import cx from "clsx"
 import Link from "next/link"
 import React from "react"
-import { FOCUS_VISIBLE_OUTLINE } from "@/ui/constants"
+import TwitterIcon from "./TwitterIcon"
+
 const Navigation = () => {
     return (
-        <div className="container px-4 mx-auto  mb-4 py-6 lg:mb-20">
-            <div className="lg:flex lg:items-center lg:justify-between">
-                <Link href="/" legacyBehavior>
-                    <a
-                        className={cx("font-medium tracking-wider transition-colors text-gray-700 hover:text-gray-800 focus:text-gray-800 uppercase rounded-sm",
-                            FOCUS_VISIBLE_OUTLINE)}>
-                        Ayush Kumar
-                    </a>
-                </Link>
-                <div className=" flex flex-wrap -ml-5 text-gray-700 lg:-ml-8">
-                    <Link href="/#about" legacyBehavior>
-                        <a
-                            className="font-medium block transition-colors mt-1.5 lg:mt-0 lg:ml-8 ml-5 hover:text-gray-900 focus:text-gray-900 rounded"
-                        >
-                            About
-                        </a>
-                    </Link>
-                    <Link href="/#projects" legacyBehavior>
-                        <a
-                            className={cx("font-medium block transition-colors  mt-1.5 lg:mt-0 lg:ml-8 ml-5 hover:text-gray-900 focus:text-gray-900 rounded",
-                                FOCUS_VISIBLE_OUTLINE,
-                            )}
-                        >
-                            Projects
-                        </a>
-                    </Link>
-                    <Link href="/blog" legacyBehavior>
-                        <a
-                            className={cx("font-medium block transition-colors mt-1.5 lg:mt-0 lg:ml-8 ml-5 hover:text-gray-900 focus:text-gray-900 rounded", FOCUS_VISIBLE_OUTLINE)}>
-                            Blog
-                        </a>
-                    </Link>
-                    <Link href="/#contact" legacyBehavior>
-                        <a
-                            className={cx(
-                                "font-medium block transition-colors mt-1.5 lg:mt-0 lg:ml-8 ml-5 hover:text-gray-900 focus:text-gray-900 rounded",
-                                FOCUS_VISIBLE_OUTLINE,
-                            )}
-                        >
-                            Contact
-                        </a>
-                    </Link>
-                </div>
+        <div className="flex items-center space-x-7 leading-none text-rose-100/90 sm:text-lg">
+           <Link href="/blog" legacyBehavior>
+            <a className={cx("group rounded-lg",FOCUS_VISIBLE_OUTLINE)}>
+                Blogs 
+            </a>
+           </Link>
+           <a className={cx("group rounded-lg",FOCUS_VISIBLE_OUTLINE)}
+             href="https://twitter.com/aklite"
+             target="_blank"
+           >
+            <TwitterIcon className="w-[18px] transform text-rose-100 transition delay-100 shadow-lg duration-500 ease-out hover:scale-110" />
+            <div className="transition-colors hover:text-rose-200/90
+            ">
+                Twitter 
             </div>
+           </a>
         </div>
     )
 }

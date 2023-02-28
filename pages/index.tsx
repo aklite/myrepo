@@ -1,9 +1,10 @@
 import About from "@/ui/About"
 import Contact from "@/ui/Contact"
-import Layout from "@/ui/Layout"
+import { Layout } from "@/ui/Layout"
 import Projects from "@/ui/Projects"
 import Skills from "@/ui/Skills"
 import Words from "@/ui/Words"
+import { seo } from "@/lib/seo"
 import { ContentLink } from "@/ui/ContentLink"
 import Head from "next/head"
 // import { getAllPostsMeta } from "@/ui/mdx"
@@ -12,11 +13,13 @@ import type { PostMeta } from "types/post"
 // import fs from 'fs'
 // import path from 'path'
 // import matter from 'gray-matter'
-import {allBlogs} from "contentlayer/generated"
+import { allBlogs } from "contentlayer/generated"
 import { compareDesc } from "date-fns"
 import type { InferGetStaticPropsType } from 'next'
 import { BlogPostPreview } from "@/ui/BlogPostPreview"
-
+import { useIntersection } from "react-use"
+import ProfileImage from "@/ui/ProfileImage"
+import Navigation from "@/ui/Navigation"
 
 export function getStaticProps() {
   // const files=fs.readdirSync(path.join('posts'))
@@ -30,65 +33,61 @@ export function getStaticProps() {
   //     content 
   //   }
   // })
- const posts=allBlogs.sort((a,b)=>{
-  return compareDesc(new Date(a.publishedAt),new Date(b.publishedAt))
- })
- return {
-  props:{
-    posts 
+  const posts = allBlogs.sort((a, b) => {
+    return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
+  })
+  return {
+    props: {
+      posts
+    }
   }
- }
- 
+
 }
 
-export default function Home({ 
-  posts 
-}:InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({
+  posts
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const intersectionRef = React.useRef(null)
+  const intersection = useIntersection(intersectionRef, {
+    root: null
+  })
+  let showNav = false
+  if (intersection && !intersection.isIntersecting) {
+    showNav = true
+  }
   return (
-    <Layout>
+    <Layout showNav={showNav}>
       <Head>
-      <meta name="google-site-verification" content="NEMpabu1y5ceBmoMuGfgVTxyfYsT0myWYoVuCw2XpR0" />
-      <meta 
-      name="author"
-      content="Ayush Kumar"
-      />
-       <meta 
-        name="keywords"
-        content="Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
+        <meta name="google-site-verification" content="NEMpabu1y5ceBmoMuGfgVTxyfYsT0myWYoVuCw2XpR0" />
+        <meta
+          name="author"
+          content="Ayush Kumar"
+        />
+        <meta
+          name="keywords"
+          content="Ayush Kumar blogs ChatGPT SSR Rendering SSG Rendering Static Site Generation
         Tools I like to use NextJs Tailwind css ReactQuery"
         />
       </Head>
-      <div className="space-y-14 lg:space-y-24">
-        <div id="about">
-          <About />
-        </div>
-        <div id="skills">
-          <Skills />
-        </div>
-        <div id="blog">
-          <div className="container px-4 mx-auto">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">Blogs</h2>
-            <h4 className="text-gray-700 lg:text-lg">
-              Thoughts on what I&apos;m learning and building in web development
-            </h4>
-             {posts.map((post)=>{
-              return <BlogPostPreview key={post.slug} {...post}/>
-             })}
-            <div className="mt-8 space-y-12">
-              
+      <div>
+        <div className="space-y-8 sm:space-y-12">
+          <div className="flex items-center space-x-6">
+            <ProfileImage size="large" />
+            <div ref={intersectionRef}>
+              <h1 className="text-4xl font-medium text-rose-50/80">Ayush</h1>
+              <h2 className="text-lg text-rose-100/60">
+               Final Year Student At LPU 
+              </h2>
             </div>
           </div>
+          <p className="text-xl text-rose-50/80">{seo.description}</p>
+          <Navigation />
         </div>
-
-        <div id="projects">
-          <Projects />
-        </div>
-        <div id="words">
-          <Words />
-        </div>
-        <div id="contact">
-          <Contact />
-        </div>
+      </div>
+      <div className="mt-12 space-y-12">
+        {posts.map((post) => (
+                <BlogPostPreview key={post.slug} {...post} />
+              ))}
       </div>
     </Layout>
   )

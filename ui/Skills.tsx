@@ -1,7 +1,6 @@
 import { Memetip } from "@/ui/Memetip"
 
 import React from "react"
-import clsx from "clsx"
 
 const data:{
   title:string 

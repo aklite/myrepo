@@ -1,12 +1,12 @@
 import Image from "next/image"
 import Link from "next/link"
 import { HighlightOnHover } from "../ui/HighlightOnHover"
-import Layout from "../ui/Layout"
+import{ Layout }from "../ui/Layout"
 
 export default function oops() {
     return (
         <div>
-            <Layout>
+            <Layout showNav={true}>
                 <div className="text-center my-28 ">
                     <Image
             src="/nervous.png"

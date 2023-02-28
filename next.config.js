@@ -3,8 +3,15 @@ const { withContentlayer } = require("next-contentlayer")
 module.exports=withContentlayer({
 
     images: {
-        domains: [
-          "i.pinimg.com" // Image 
+        remotePatterns:[
+        {
+          protocol:"https",
+          hostname:"i.pinimg.com"
+        },
+        {
+          protocol: 'https',
+          hostname: 'www.digitalocean.com'
+        }
         ],
       },
 })
