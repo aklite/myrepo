@@ -15,7 +15,7 @@ const Metrics=({
         isError:viewIsError
     }=usePostViews(slug);
     return (
-        <div className="flex space-x-2 text-gray-500/90">
+        <div className="flex space-x-2 text-green-500/90">
             <div>
                 {
                     viewIsError || viewIsLoading ? (

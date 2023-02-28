@@ -16,7 +16,7 @@ export const components:any = {
   h4: (props: any) => (
     <h4 className="mt-6 mb-5 text-lg font-medium" {...props} />
   ),
-  p: (props: any) => <p className="mb-5 mt-4 leading-9 text-[22px] font-normal text-[#0A0A23]" {...props} />,
+  p: (props: any) => <p className="mb-5 mt-4 leading-9 text-[22px] font-normal " {...props} />,
   hr: (props: any) => <hr {...props} />,
   ul: (props: any) => <ul className="mb-6" {...props} />,
   ol: (props: any) => (
@@ -62,7 +62,7 @@ export const components:any = {
   },
   code: ({ children }: { children: React.ReactNode }) => {
     return (
-      <code className="px-2 py-0.5 text-sm font-mono bg-gray-700/60 text-gray-300/90 rounded-md">
+      <code className="rounded-md bg-gray-700/60 px-2 py-0.5 font-mono text-sm text-gray-300/90">
         {children}
       </code>
     )

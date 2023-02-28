@@ -1,5 +1,5 @@
 div[data-rehype-pretty-code-fragment] {
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(255,255,255,0.1);
     padding-block: 1rem;
   }
   /* div[]{
@@ -7,7 +7,7 @@ div[data-rehype-pretty-code-fragment] {
   } */
   div[data-rehype-pretty-code-fragment] .line {
     /* stylistic preferences */
-    background-color: black;
+    background-color: #282424;
     padding-left: 2rem !important;
   }
   pre > code {
@@ -42,3 +42,4 @@ div[data-rehype-pretty-code-fragment] {
     /* Change highlight background color to black */
     background: #2d4f45;
   }
+  

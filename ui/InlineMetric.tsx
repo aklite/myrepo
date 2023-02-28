@@ -5,6 +5,7 @@ export const InlineMetric = ({
     stat: number | undefined
     text?: string     
 })=>{
+    
     return (
         <>
             <span className="-mx-0.5 animate-[mutation_2s_ease-in-out_1] rounded-md px-0.5 slashed-zero 

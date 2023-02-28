@@ -17,8 +17,7 @@ const Navigation = () => {
              target="_blank"
            >
             <TwitterIcon className="w-[18px] transform text-rose-100 transition delay-100 shadow-lg duration-500 ease-out hover:scale-110" />
-            <div className="transition-colors hover:text-rose-200/90
-            ">
+            <div className="transition-colors hover:text-rose-200/90">
                 Twitter 
             </div>
            </a>
