@@ -13,7 +13,7 @@ const Navigation = () => {
             </a>
            </Link>
            <a className={cx("group rounded-lg",FOCUS_VISIBLE_OUTLINE)}
-             href="https://twitter.com/aklite"
+             href="https://twitter.com/aklite9"
              target="_blank"
            >
             <TwitterIcon className="w-[18px] transform text-rose-100 transition delay-100 shadow-lg duration-500 ease-out hover:scale-110" />
