@@ -107,6 +107,7 @@ export default function PostPage(
 
   const ogImage = createOgImage({
     title: post.title,
+    description:post.description,
     meta: "aklite.study . " + post.publishedAt
   })
   const intersectionRef = React.useRef(null)
@@ -151,7 +152,9 @@ export default function PostPage(
           <h1 className="text-2xl font-medium text-rose-100/80 sm:text-4xl">
             {post.title}
           </h1>
-
+          <h3 className="text-2xl font-medium text-rose-100/80 sm:text-2xl my-5">
+            {post.description}
+          </h3>
           <div className="flex flex-wrap items-center justify-between text-lg text-rose-100/40">
             <div className="flex mt-2 space-x-2">
               <div>

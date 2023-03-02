@@ -2,9 +2,7 @@ div[data-rehype-pretty-code-fragment] {
     background-color: rgba(255,255,255,0.1);
     padding-block: 1rem;
   }
-  /* div[]{
-    background-color: rgba(197, 181, 182, 0.1);
-  } */
+  
   div[data-rehype-pretty-code-fragment] .line {
     /* stylistic preferences */
     background-color: #282424;

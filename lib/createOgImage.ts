@@ -3,9 +3,11 @@ const e = (str: string) => encodeURIComponent(encodeURIComponent(str))
 export const createOgImage = ({
   title,
   meta,
+  description
 }: {
   title: string
   meta: string
+  description:string 
 }) =>
   [
     // ACCOUNT PREFIX
@@ -18,7 +20,7 @@ export const createOgImage = ({
     `l_text:Karla_72_bold:${e(title)},co_rgb:ffe4e6,c_fit,w_1400,h_240`,
     // Positioning
     `fl_layer_apply,g_south_west,x_100,y_180`,
-
+    `l_text:Karla_72_bold:${e(description)},co_rgb:fef4e9,c_fit,w_800,h_100`,
     // META  
     // Karla, but smaller
     `l_text:Karla_48:${e(meta)},co_rgb:ffe4e680,c_fit,w_1400`,

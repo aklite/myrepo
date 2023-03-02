@@ -13,8 +13,8 @@ const ProfileImage = ({
     <div 
     className={clsx("")}>
       <Image 
-      src="/ayush.jpg"
-      alt="Ayush Image Photo"
+      src="/ayush.jpeg"
+      alt="A Photo of ayush"
       priority={true}
       className="rounded-full"
       width={size==="small" ? 36 : 64}

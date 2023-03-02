@@ -12,12 +12,13 @@ export const seo: DefaultSeoProps = {
   description,
   openGraph: {
     title,
+    description,
     type: "website",
     url: `https://${domain}`,
     site_name: title,
     images: [
       {
-        url: createOgImage({ title, meta }),
+        url: createOgImage({ title, meta,description }),
         width: 1600,
         height: 836,
         alt: title,

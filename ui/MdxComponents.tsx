@@ -62,7 +62,7 @@ export const components:any = {
   },
   code: ({ children }: { children: React.ReactNode }) => {
     return (
-      <code className="rounded-md bg-gray-700/60 px-2 py-0.5 font-mono text-sm text-gray-300/90">
+      <code className="rounded-md  px-2 py-0.5 font-mono text-sm bg-blue-900">
         {children}
       </code>
     )

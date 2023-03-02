@@ -80,7 +80,7 @@ export default function Home({
               </h2>
             </div>
           </div>
-          <p className="text-xl text-rose-50/80">{seo.description}</p>
+          <p className="text-lg text-rose-100/80">{seo.description}</p>
           <Navigation />
         </div>
       </div>

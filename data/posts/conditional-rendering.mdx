@@ -1,11 +1,9 @@
 ---
 title: 'Conditional Rendering in ReactJs'
-description: 'Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, `&&`, and `?` `:` operators.'
+description: 'Your components will often need to display different things depending on different conditions. In React, you can conditionally render JSX using JavaScript syntax like `if` statements, &&, and ? : operators.'
 image: 'https://www.digitalocean.com/_next/static/media/intro-to-cloud.d49bc5f7.jpeg'
 publishedAt: 'February 23, 2023'
 ---
-
-##### Hey ya In this blog We will learn about Conditional Rendering in ReactJS 
 
 Single Page applications are dynamic and event driven in nature. To make this possible
 React has one feature called ***conditional rendering***.
@@ -23,11 +21,12 @@ This concept is often applied in different situations:
 - Handling authentication and authorization 
 
 Lets see some ways of implementing conditional rendering in ReactJS 
+We have have a PackingList component rendering several Items, which can be marked as packed or not
 
 ## Method 1
 In Some situations we may not want to render anything at all. In that case we can return `null`
 
-```jsx
+```jsx 
 if (condition){
     return <div>{name}<div>;
 }
@@ -37,6 +36,37 @@ return null;
 If condition is true, it will return JSX to render, or else it returns null
 Its not common to return null from component.
 
+```jsx 
+// App.jsx
+function Item({ name, isPacked }) {
+  if (isPacked) {
+    return null;
+  }
+  return <li className="item">{name}</li>;
+}
+
+export default function PackingList() {
+  return (
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="Space suit" 
+        />
+        <Item 
+          isPacked={true} 
+          name="Helmet with a golden leaf" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Photo of Tam" 
+        />
+      </ul>
+    </section>
+  );
+}
+```
 ## Method 2 using ternary operator `?`
 
 ```jsx 
@@ -45,10 +75,52 @@ return (
       {condition ? name + ' ✔' : name}
     </div> 
 )
+```
+
 In the above code if condition is true (` ? `)
-then render `name + '  ✔`', or else ( : ) render `name`
+then render `name + '  ✔'`, or else ( : ) render `name`
+
+```jsx 
+// App.jsx 
+function Item({ name, isPacked }) {
+  return (
+    <li className="item">
+      {isPacked ? (
+        <del>
+          {name + ' ✔'}
+        </del>
+      ) : (
+        name
+      )}
+    </li>
+  );
+}
+
+export default function PackingList() {
+  return (
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="Space suit" 
+        />
+        <Item 
+          isPacked={true} 
+          name="Helmet with a golden leaf" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Photo of Tam" 
+        />
+      </ul>
+    </section>
+  );
+}
+```
 
 ## Method 3 using Logical AND operator ( `&&` )
+
 ```jsx
 return (
     <div>
@@ -61,17 +133,53 @@ if the lift side (condition) is true. But if the condition on left side is false
 the whole expression becomes false, and dosen't render anything in its place. We shouldn't put numbers on the left
 side of `&&` .JavaScript converts the left side to a boolean automatically. However, if the left side is `0`, then the whole expression gets that value (0), and React will happily render 0 rather than nothing.
 
+```jsx
+// App.jsx
+function Item({ name, isPacked }) {
+  return (
+    <li className="item">
+      {name} {isPacked && '✔'}
+    </li>
+  );
+}
+
+export default function PackingList() {
+  return (
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="Space suit" 
+        />
+        <Item 
+          isPacked={true} 
+          name="Helmet with a golden leaf" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Photo of Tam" 
+        />
+      </ul>
+    </section>
+  );
+}
+```
+
+
 ## Conditionally assigning JSX to a variable 
 The above 3 methods were shortcuts if theat becomes tricky or hard to use,
 we can use `if` statement and a variable. You can 
 reassign variables defined with let  
 
-```
+```jsx 
 let itemContent=name;
 ```
+
 Use an `if` statement to reassign a JSX expression to itemContent if 
 `isPacked` is `true`
-```
+
+```jsx
 if (isPacked) {
   itemContent = name + " ✔";
 }
@@ -84,10 +192,10 @@ Embed the variable with curly braces in the returned JSX tree,
   {itemContent}
 </li>
 ```
+This style is the most verbose, but it’s also the most flexible. Here it is in action:
 
-
-Final code 
-```jsx
+```jsx 
+// App.jsx 
 function Item({ name, isPacked }) {
   let itemContent = name;
   if (isPacked) {
