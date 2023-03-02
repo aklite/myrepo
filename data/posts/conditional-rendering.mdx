@@ -9,6 +9,9 @@ publishedAt: 'February 23, 2023'
 
 Single Page applications are dynamic and event driven in nature. To make this possible
 React has one feature called ***conditional rendering***.
+Wait what do you mean by *rendering* ?
+By Rendering we mean to say that updating the page view based on changes in its state or props.
+
 
 React components need to often display different user interface based on different conditions. 
 
@@ -19,7 +22,108 @@ This concept is often applied in different situations:
 - implementing permission levels 
 - Handling authentication and authorization 
 
+Lets see some ways of implementing conditional rendering in ReactJS 
+
+## Method 1
+In Some situations we may not want to render anything at all. In that case we can return `null`
+
+```jsx
+if (condition){
+    return <div>{name}<div>;
+}
+return null;
+```
+
+If condition is true, it will return JSX to render, or else it returns null
+Its not common to return null from component.
+
+## Method 2 using ternary operator `?`
+
+```jsx 
+return (
+    <div>
+      {condition ? name + ' ✔' : name}
+    </div> 
+)
+In the above code if condition is true (` ? `)
+then render `name + '  ✔`', or else ( : ) render `name`
+
+## Method 3 using Logical AND operator ( `&&` )
+```jsx
+return (
+    <div>
+    {name} {condition && '✔'} 
+    </div>
+)
+```
+JavaScript && expression returns the value of its right side
+if the lift side (condition) is true. But if the condition on left side is false 
+the whole expression becomes false, and dosen't render anything in its place. We shouldn't put numbers on the left
+side of `&&` .JavaScript converts the left side to a boolean automatically. However, if the left side is `0`, then the whole expression gets that value (0), and React will happily render 0 rather than nothing.
+
+## Conditionally assigning JSX to a variable 
+The above 3 methods were shortcuts if theat becomes tricky or hard to use,
+we can use `if` statement and a variable. You can 
+reassign variables defined with let  
+
+```
+let itemContent=name;
+```
+Use an `if` statement to reassign a JSX expression to itemContent if 
+`isPacked` is `true`
+```
+if (isPacked) {
+  itemContent = name + " ✔";
+}
+```
+
+Curly braces open the “window into JavaScript”. 
+Embed the variable with curly braces in the returned JSX tree, 
+```jsx
+<li className="item">
+  {itemContent}
+</li>
+```
 
 
+Final code 
+```jsx
+function Item({ name, isPacked }) {
+  let itemContent = name;
+  if (isPacked) {
+    itemContent = (
+      <del>
+        {name + " ✔"}
+      </del>
+    );
+  }
+  return (
+    <li className="item">
+      {itemContent}
+    </li>
+  );
+}
 
+export default function PackingList() {
+  return (
+    <section>
+      <h1>Sally Ride's Packing List</h1>
+      <ul>
+        <Item 
+          isPacked={true} 
+          name="Space suit" 
+        />
+        <Item 
+          isPacked={true} 
+          name="Helmet with a golden leaf" 
+        />
+        <Item 
+          isPacked={false} 
+          name="Photo of Tam" 
+        />
+      </ul>
+    </section>
+  );
+}
+```
 
