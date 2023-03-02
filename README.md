@@ -25,34 +25,34 @@
 - Implement backend server for my portfolio to fetch views, post comments, reactions to my blogs.
 
 ## Contribution Guidelines
-Fork the repository and create a new branch for your changes.
+- Fork the repository and create a new branch for your changes.
 
-Before making any changes, make sure to pull the latest changes from the main branch to avoid conflicts.
+- Before making any changes, make sure to pull the latest changes from the main branch to avoid conflicts.
 
-Follow the existing code style and naming conventions of the project.
+- Follow the existing code style and naming conventions of the project.
 
-Write clear and concise commit messages that explain the purpose of your changes.
+- Write clear and concise commit messages that explain the purpose of your changes.
 
-Make sure to add tests for any new functionality or bug fixes.
+- Make sure to add tests for any new functionality or bug fixes.
 
-Update the README file to reflect any changes to the project, including new features or changes to existing functionality.
+- Update the README file to reflect any changes to the project, including new features or changes to existing functionality.
 
-If your changes are related to an existing issue, make sure to reference the issue number in your commit message.
+- If your changes are related to an existing issue, make sure to reference the issue number in your commit message.
 
-If you're unsure about how to implement a particular feature or fix a bug, open a new issue or discuss it with other contributors on the project's communication channels.
+- If you're unsure about how to implement a particular feature or fix a bug, open a new issue or discuss it with other contributors on the project's communication channels.
 
-Be respectful and professional in all interactions with other contributors.
+- Be respectful and professional in all interactions with other contributors.
 
 ## Pull Request Guidelines
-Before submitting a pull request, make sure that your changes are properly tested and meet the project's coding standards.
+- Before submitting a pull request, make sure that your changes are properly tested and meet the project's coding standards.
+ 
+- Include a clear description of the changes in your pull request and reference any related issues or pull requests.
 
-Include a clear description of the changes in your pull request and reference any related issues or pull requests.
+- Make sure to keep your pull request small and focused on a single change or feature. Large, complex pull requests can be difficult to review and merge.
+ 
+- Once your pull request is accepted, make sure to update your local copy of the repository and delete your branch.
 
-Make sure to keep your pull request small and focused on a single change or feature. Large, complex pull requests can be difficult to review and merge.
-
-Once your pull request is accepted, make sure to update your local copy of the repository and delete your branch.
-
-By following these guidelines, you can help ensure that your contributions to the project are clear, well-documented, and easy to review and merge.
+- By following these guidelines, you can help ensure that your contributions to the project are clear, well-documented, and easy to review and merge.
 
 ## Your Support means a lot
 
