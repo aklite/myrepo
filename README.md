@@ -33,8 +33,6 @@
 
 - Write clear and concise commit messages that explain the purpose of your changes.
 
-- Make sure to add tests for any new functionality or bug fixes.
-
 - Update the README file to reflect any changes to the project, including new features or changes to existing functionality.
 
 - If your changes are related to an existing issue, make sure to reference the issue number in your commit message.
